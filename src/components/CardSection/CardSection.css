@@ -1,0 +1,57 @@
+.card-section-main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.card-section-inside-container{
+    width: 80%
+}
+
+.card-section-heading-text{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-section-cards-holder{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+/* ======= cards css =============== */
+
+.card-section-card{
+    width: 220px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.card-section-card:hover{
+    background-color: rgb(228, 227, 227);
+}
+
+.card-section-card img{
+    width: 100%;
+}
+
+.card-lighter-text{
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: gray;
+}
+
+.card-text{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.card-price{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--bg-orange);
+}

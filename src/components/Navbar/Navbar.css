@@ -1,0 +1,43 @@
+.Navbar-main-container
+{
+    width: 100%;
+}
+
+.navbar-logo
+{
+    cursor: pointer;
+    width: 170px;
+}
+
+.navbar-inside-container
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-elements
+{
+    width: 50%;
+}
+
+.navbar-ul
+{
+    cursor: pointer;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.navbar-li
+{
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--bg-white);
+    text-decoration: none;
+}
+
+.navlink{
+    text-decoration: none;
+    color: var(--bg-white);
+}
