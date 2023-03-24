@@ -1,5 +1,4 @@
 import './CardSection.css';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
 const { Meta } = Card;
 
@@ -86,6 +85,7 @@ export default function CardSection() {
                             </Card>
                         ))
                     }
+                    
                 </div>
             </div>
         </div>
