@@ -5,7 +5,7 @@ import BuyerSignUp from "./components/LoginSignUpPages/BuyerPage/SignUp/BuyerSig
 import BuyerLogin from "./components/LoginSignUpPages/BuyerPage/Login/BuyerLogin";
 import SellerSignUp from "./components/LoginSignUpPages/SellerPage/SignUp/SellerSignUp";
 import SellerLogin from "./components/LoginSignUpPages/SellerPage/Login/SellerLogin";
-
+import PostTour from "./components/PostTourPage/PostTour";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -18,6 +18,7 @@ function App() {
         <Route path="/buyerLogin" element={<BuyerLogin />} />
         <Route path="/sellerSignUp" element={<SellerSignUp />} />
         <Route path="/sellerLogin" element={<SellerLogin />} />
+        <Route path="/postTour" element={<PostTour />} />
         <Route path="/buyingDashboard" element={<BuyingDashboard />} />
         <Route path="/aboutus" element={<Aboutus />} />
       </Routes>
