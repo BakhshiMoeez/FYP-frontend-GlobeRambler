@@ -1,3 +1,168 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ====================BUYER LOGIN SIGNUP PAGE==================== */
+
+.main-page.login-signup .row.main-page {
+  margin: 0 !important;
+}
+
+.main-page.login-signup img.main-page-main-bg {
+  width: 100%;
+}
+
+.main-page.login-signup .container-fluid.main-page {
+  padding: 0;
+}
+
+.main-page.login-signup img.main-page-main-logo {
+  position: relative;
+  max-width: 250px;
+  z-index: 1;
+  top: 30px;
+}
+
+.main-page.login-signup img.main-page-main-bg {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.main-page.login-signup .main-page-image-section {
+  text-align: center;
+}
+
+.main-page.login-signup ul.main-page-ul {
+  display: flex;
+  list-style-type: none;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.main-page.login-signup ul.main-page-ul li {
+  padding: 0 8%;
+}
+
+.main-page.login-signup ul.main-page-ul li a {
+  text-decoration: none;
+  color: #3a3a3c;
+}
+
+.main-page.login-signup hr.login-signup-hr-1 {
+  width: 48%;
+}
+
+.main-page.login-signup input {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  background: #f2f2f2;
+}
+
+.main-page.login-signup .login-signup-form-signing {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 90%;
+}
+
+.main-page.login-signup .form-field.login-signup {
+  margin: 10px 0;
+}
+
+.main-page.login-signup .form-field.login-signup label {
+  color: #313131;
+}
+
+.main-page.login-signup p.login-signup-already-member {
+  color: #a3a3a3;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.main-page.login-signup p.login-signup-already-member a {
+  color: #313131;
+  text-decoration: underline;
+}
+
+.main-page.login-signup p.login-signup-already-member a:hover {
+  color: #313131;
+}
+
+.main-page.login-signup button.login-signup-continue-btn {
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #f1592a;
+  font-family: inherit;
+  padding: 15px 0;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.main-page.login-signup button.login-signup-continue-btn.submit {
+  background: #313131;
+  margin: 0 auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.main-page.login-signup .login-signup-or-div {
+  display: flex;
+  padding: 20px 0;
+}
+
+.main-page.login-signup .login-signup-or-div p {
+  margin: 0 20px;
+}
+
+.main-page.login-signup button.login-signup-continue-btn span i {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 991px) {
+  .main-page.login-signup img.main-page-main-bg {
+    display: none;
+  }
+
+  .main-page.login-signup ul.main-page-ul {
+    max-width: 358px;
+    margin-top: 30px;
+  }
+
+  .main-page.login-signup ul.main-page-ul li {
+    padding: 0 28px;
+  }
+
+  .main-page.login-signup .login-signup-form-signing {
+    margin-top: 50px;
+  }
+
+  .main-page .row.main-page {
+    padding-bottom: 100px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .main-page.login-signup ul.main-page-ul {
+    max-width: 292px;
+    margin-top: 30px;
+  }
+
+  .main-page.login-signup ul.main-page-ul li {
+    padding: 0px 17px;
+  }
 }

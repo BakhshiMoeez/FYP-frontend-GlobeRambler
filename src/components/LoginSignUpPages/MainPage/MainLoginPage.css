@@ -1,3 +1,126 @@
 *{
     box-sizing: border-box;
 }
+
+/* ====================WELCOME PAGE==================== */
+
+.main-page ul.main-page-ul a:after {
+    display: block;
+    content: '';
+    border-bottom: solid 2px #000;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.main-page ul.main-page-ul li a:hover:after {
+    transform: scaleX(1);
+}
+
+.main-page .row.main-page {
+    margin: 0 !important;
+}
+
+.main-page img.main-page-main-bg {
+    width: 100%;
+}
+
+.container-fluid.main-page {
+    padding: 0;
+}
+
+.main-page img.main-page-main-logo {
+    position: relative;
+    max-width: 250px;
+    z-index: 1;
+    top: 30px;
+}
+
+.main-page img.main-page-main-bg {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.main-page .main-page-image-section {
+    text-align: center;
+}
+
+.main-page ul.main-page-ul {
+    display: flex;
+    list-style-type: none;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.main-page ul.main-page-ul li {
+    padding: 0 8%;
+}
+
+.main-page ul.main-page-ul li a {
+    text-decoration: none;
+    color: #3A3A3C;
+}
+
+.main-page .main-page-main-content {
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 23vh;
+}
+
+.main-page .main-page-main-content p {
+    margin: 0 20px;
+}
+
+.main-page .main-page-or-div {
+    display: flex;
+    padding: 20px 0;
+}
+
+.main-page button.main-page-continue-btn {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #F1592A;
+    font-family: inherit;
+    padding: 15px 0;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.main-page hr.main-page-hr-1 {
+    width: 48%;
+}
+
+@media only screen and (max-width: 991px) {
+    .main-page img.main-page-main-bg {
+        display: none;
+    }
+
+    .main-page ul.main-page-ul {
+        max-width: 358px;
+        margin-top: 30px;
+    }
+    .main-page .main-page-main-content {
+        margin-top: 50px;
+    }
+
+    .main-page ul.main-page-ul li {
+        padding: 0 28px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .main-page ul.main-page-ul {
+        max-width: 292px;
+        margin-top: 30px;
+    }
+    
+    .main-page ul.main-page-ul li {
+        padding: 0px 17px;
+    }
+}
