@@ -1,7 +1,23 @@
-import React from 'react';
+import { useState } from 'react';
 import './BuyerLogin.css';
 
 export default function BuyerLogin() {
+    const [email, setEmail] = useState('abc@gmail.com');
+    const [password, setPassword] = useState('abc');
+
+    function buyerEmailHandler(e) {
+        setEmail(e.target.value);
+    };
+    
+    function buyerPasswordHandler(e) {
+        setPassword(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(email, password);
+    };
+
   return (
     <div className="container-fluid main-page login-signup">
         <div className="row main-page">
@@ -27,14 +43,14 @@ export default function BuyerLogin() {
                         <hr className="login-signup-hr-1" />
                     </div>
 
-                    <form className='login-signup-form' action="/action_page.php">
+                    <form className='login-signup-form' onSubmit={handleSubmit}>
                         <div className="form-field login-signup">
                             <label htmlFor="email">Username or Email Address</label>
-                            <input type="email" required="required" id="email" name="email" />
+                            <input type="email" required="required" id="email" name="email" onChange={buyerEmailHandler}/>
                         </div>
                         <div className="form-field login-signup">
                             <label htmlFor="password">Password</label>
-                            <input type="password" required="required" id="password" name="password" />
+                            <input type="password" required="required" id="password" name="password" onChange={buyerPasswordHandler}/>
                         </div>
                         <button className="login-signup-continue-btn submit" type="submit">Sign In</button>
                         <p className="login-signup-already-member">Not have an account? <a href="/buyerSignUp">Sign up</a></p>

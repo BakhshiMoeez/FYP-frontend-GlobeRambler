@@ -1,7 +1,23 @@
-import React from 'react';
+import { useState } from 'react';
 import './SellerLogin.css';
 
 export default function SellerLogin() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    function sellerEmailHandler(e) {
+        setEmail(e.target.value);
+    };
+
+    function sellerPasswordHandler(e) {
+        setPassword(e.target.value);
+    };
+
+    const handleSubmit = (e) => {  
+        e.preventDefault();
+        console.log(email, password);
+    }
+
   return (
     <div className="container-fluid main-page login-signup">
         <div className="row main-page seller">
@@ -21,14 +37,14 @@ export default function SellerLogin() {
                         <hr className="login-signup-hr-1" />
                     </div>
 
-                    <form className='login-signup-form'>
+                    <form className='login-signup-form' onSubmit={handleSubmit}>
                         <div className="form-field login-signup">
                             <label htmlFor="email">Username or Email Address</label>
-                            <input type="email" required="required" id="email" name="email" />
+                            <input type="email" required="required" id="email" name="email" onChange={sellerEmailHandler} />
                         </div>
                         <div className="form-field login-signup">
                             <label htmlFor="password">Password</label>
-                            <input type="password" required="required" id="password" name="password" />
+                            <input type="password" required="required" id="password" name="password" onChange={sellerPasswordHandler} />
                         </div>
                         <button className="login-signup-continue-btn submit" type="submit">Sign In</button>
                         <p className="login-signup-already-member">Not have an account? <a href="/sellerSignUp">Sign up</a></p>
