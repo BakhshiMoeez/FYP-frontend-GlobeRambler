@@ -1,10 +1,41 @@
-import React from 'react';
+import { useState } from 'react';
 import './SellerSignUp.css';
 import $ from 'jquery';
 import "jquery-ui-dist/jquery-ui";
 import { useEffect } from 'react';
+import {Popover} from 'antd';
 
 export default function SellerLogin() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
+    const [profilePic, setProfilePic] = useState('');
+    const [creditCardNumber, setCreditCardNumber] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    const [companyName, setCompanyName] = useState('');
+    const [companyLocation, setCompanyLocation] = useState('');
+    const [companayDescription, setCompanyDescription] = useState('');
+
+    function handleSubmit(e){
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('fname', fname);
+        formData.append('lname', lname);
+        formData.append('profilePic', profilePic);
+        formData.append('creditCardNumber', creditCardNumber);
+        formData.append('phone', phone);
+        formData.append('address', address);
+        formData.append('companyName', companyName);
+        formData.append('companyLocation', companyLocation);
+        formData.append('companayDescription', companayDescription);
+
+        console.log(...formData.values());
+    };
+
     useEffect(() => {
         // Add the following code if you want the name of the file appear on select
         $(".custom-file-input").on("change", function() {
@@ -32,19 +63,19 @@ export default function SellerLogin() {
                         <hr className="login-signup-hr-1" />
                     </div>
 
-                    <form className='login-signup-form'>
+                    <form className='login-signup-form' onSubmit={handleSubmit}>
                       <div className="row">
                           <div className="col-6">
                               <div className="form-field">
                                   <label htmlFor="fname">First Name</label>
-                                  <input type="text" required="required" id="fname" name="fname" />
+                                  <input onChange={(e) => setFname(e.target.value)} type="text" required="required" id="fname" name="fname" />
                               </div>
                           </div>
                       
                           <div className="col-6">
                               <div className="form-field">
                                   <label htmlFor="lname">Last Name</label>
-                                  <input type="text" required="required" id="lname" name="lname" />
+                                  <input onChange={(e) => setLname(e.target.value)} type="text" required="required" id="lname" name="lname" />
                               </div>
                           </div>
                         </div>
@@ -52,42 +83,59 @@ export default function SellerLogin() {
                           <div className="col-6">
                             <div className="form-field login-signup">
                                 <label htmlFor="email">Email</label>
-                                <input type="email" required="required" id="email" name="email" />
+                                <input onChange={(e) => setEmail(e.target.value)} type="email" required="required" id="email" name="email" />
                             </div>
                           </div>
                       
                           <div className="col-6">
                             <div className="form-field login-signup">
-                                  <label htmlFor="credit-card-number">Company Location</label>
-                                  <input type="text" required="required" id="credit-card-number" name="credit-card-number" />
+                                  <label htmlFor="credit-card-number">Credit Card Number</label>
+                                  <input onChange={(e) => setCreditCardNumber(e.target.value)} type="text" required="required" id="credit-card-number" name="credit-card-number" />
+                              </div>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col-6">
+                            <div className="form-field login-signup">
+                                <label htmlFor="phone">Phone No.</label>
+                                <input onChange={(e) => setPhone(e.target.value)} type="text" required="required" id="phone" name="phone" />
+                            </div>
+                          </div>
+                      
+                          <div className="col-6">
+                            <div className="form-field login-signup">
+                                  <label htmlFor="address">Address</label>
+                                  <input onChange={(e) => setAddress(e.target.value)} type="text" required="required" id="address" name="address" />
                               </div>
                           </div>
                         </div>
                         <div className="form-field login-signup">
                             <label htmlFor="password">Password</label>
-                            <input type="password" required="required" id="password" name="password" />
+                            <input onChange={(e) => setPassword(e.target.value)} type="password" required="required" id="password" name="password" />
                         </div>
                         <div className="row">
                           <div className="col-6">
                               <div className="form-field login-signup">
                                   <label htmlFor="company-name">Company Name</label>
-                                  <input type="text" required="required" id="company-name" name="company-name" />
+                                  <input onChange={(e) => setCompanyName(e.target.value)} type="text" required="required" id="company-name" name="company-name" />
                               </div>
                           </div>
                       
                           <div className="col-6">
                             <div className="form-field login-signup">
                                   <label htmlFor="company-location">Company Location</label>
-                                  <input type="text" required="required" id="company-location" name="company-location" />
+                                  <input onChange={(e) => setCompanyLocation(e.target.value)} type="text" required="required" id="company-location" name="company-location" />
                               </div>
                           </div>
                         </div>
                         <div className="form-field">
                                 <label htmlFor="company-description">Company Description</label>
-                                <input type="text" required="required" id="company-description" name="company-description" />
+                                <input onChange={(e) => setCompanyDescription(e.target.value)} type="text" required="required" id="company-description" name="company-description" />
                             </div>
                         <div className="custom-file login-signup">
-                            <input type="file" required="required" className="custom-file-input" id="customFile" />
+                            <Popover title="Size of Image should be less than 10MB">
+                                <input onChange={(e) => setProfilePic(e.target.files[0])} type="file" required="required" className="custom-file-input" id="customFile" />
+                            </Popover>
                             <label className="custom-file-label" htmlFor="customFile">Choose file</label>
                         </div>
                         <div className="form-field login-signup checkbox">
