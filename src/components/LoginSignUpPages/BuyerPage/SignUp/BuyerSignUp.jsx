@@ -4,6 +4,7 @@ import $ from 'jquery';
 import "jquery-ui-dist/jquery-ui";
 import { useEffect } from 'react';
 import { Popover } from 'antd';
+import axios from 'axios';
 
 export default function BuyerSignUp() {
 
@@ -33,7 +34,7 @@ export default function BuyerSignUp() {
         setProfilePic(e.target.files[0]);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('email', email);
@@ -41,7 +42,15 @@ export default function BuyerSignUp() {
         formData.append('fname', fname);
         formData.append('lname', lname);
         formData.append('profilePic', profilePic);
-        //console.log(...formData.values());
+        
+        console.log(...formData.values());
+
+        const respose = await axios.post(`${process.env.REACT_APP_API_URL}/api/buyer/signup`, formData,{
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        });
+        console.log(respose.data);
     };
 
     useEffect(() => {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import './SellerLogin.css';
 
 export default function SellerLogin() {
@@ -13,9 +14,11 @@ export default function SellerLogin() {
         setPassword(e.target.value);
     };
 
-    const handleSubmit = (e) => {  
+    const handleSubmit = async (e) => {  
         e.preventDefault();
         console.log(email, password);
+        const respose = await axios.post('http://localhost:3500/api/seller/login', {email, password});
+        console.log(respose.data);
     }
 
   return (

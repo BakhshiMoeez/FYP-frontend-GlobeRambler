@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import './BuyerLogin.css';
 
 export default function BuyerLogin() {
@@ -13,9 +14,11 @@ export default function BuyerLogin() {
         setPassword(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(email, password);
+        const response = await axios.post('http://localhost:3500/api/buyer/login', {email, password});
+        console.log(response.data);
     };
 
   return (

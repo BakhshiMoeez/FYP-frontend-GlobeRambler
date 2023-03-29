@@ -18,7 +18,7 @@ export default function SellerLogin() {
     const [companyLocation, setCompanyLocation] = useState('');
     const [companayDescription, setCompanyDescription] = useState('');
 
-    function handleSubmit(e){
+    const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('email', email);
@@ -33,7 +33,7 @@ export default function SellerLogin() {
         formData.append('companyLocation', companyLocation);
         formData.append('companayDescription', companayDescription);
 
-        console.log(...formData.values());
+        //console.log(...formData.values());
     };
 
     useEffect(() => {
