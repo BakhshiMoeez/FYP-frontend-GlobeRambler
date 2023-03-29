@@ -1,10 +1,48 @@
-import React from 'react';
+import { useState } from 'react';
 import './BuyerSignUp.css';
 import $ from 'jquery';
 import "jquery-ui-dist/jquery-ui";
 import { useEffect } from 'react';
+import { Popover } from 'antd';
 
 export default function BuyerSignUp() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
+    const [profilePic, setProfilePic] = useState('');
+
+    function handleEmail(e){
+        setEmail(e.target.value);
+    };
+
+    function handlePassword(e){
+        setPassword(e.target.value);
+    };
+
+    function handleFname(e){
+        setFname(e.target.value);
+    };
+
+    function handleLname(e){
+        setLname(e.target.value);
+    };
+
+    function handleImage(e){
+        setProfilePic(e.target.files[0]);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('fname', fname);
+        formData.append('lname', lname);
+        formData.append('profilePic', profilePic);
+        //console.log(...formData.values());
+    };
 
     useEffect(() => {
         // Add the following code if you want the name of the file appear on select
@@ -40,32 +78,34 @@ export default function BuyerSignUp() {
                         <hr className="login-signup-hr-1" />
                     </div>
 
-                    <form className='login-signup-form'>
+                    <form className='login-signup-form' onSubmit={handleSubmit}>
                       <div className="row">
                           <div className="col-6">
                               <div className="form-field">
                                   <label htmlFor="fname">First Name</label>
-                                  <input type="text" required="required" id="fname" name="fname" />
+                                  <input type="text" required="required" id="fname" name="fname" onChange={handleFname}/>
                               </div>
                           </div>
                       
                           <div className="col-6">
                               <div className="form-field">
                                   <label htmlFor="lname">Last Name</label>
-                                  <input type="text" required="required" id="lname" name="lname" />
+                                  <input type="text" required="required" id="lname" name="lname" onChange={handleLname} />
                               </div>
                           </div>
                         </div>
                         <div className="form-field login-signup">
                             <label htmlFor="email">Email</label>
-                            <input type="email" required="required" id="email" name="email" />
+                            <input type="email" required="required" id="email" name="email" onChange={handleEmail}/>
                         </div>
                         <div className="form-field login-signup">
                             <label htmlFor="password">Password</label>
-                            <input type="password" required="required" id="password" name="password" />
+                            <input type="password" required="required" id="password" name="password" onChange={handlePassword}/>
                         </div>
                         <div className="custom-file login-signup">
-                            <input type="file" required="required" className="custom-file-input" id="customFile" />
+                            <Popover title="Size of Image should be less than 10MB">
+                                <input type="file" required="required" className="custom-file-input" id="customFile" onChange={handleImage} />
+                            </Popover>
                             <label className="custom-file-label" htmlFor="customFile">Choose file</label>
                         </div>
                         <div className="form-field login-signup checkbox">
