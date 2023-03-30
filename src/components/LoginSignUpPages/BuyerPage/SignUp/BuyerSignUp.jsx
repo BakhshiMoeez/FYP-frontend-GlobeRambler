@@ -5,9 +5,10 @@ import "jquery-ui-dist/jquery-ui";
 import { useEffect } from 'react';
 import { Popover } from 'antd';
 import axios from 'axios';
+import { Modal } from 'antd';
 
 export default function BuyerSignUp() {
-
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [fname, setFname] = useState('');
@@ -33,6 +34,16 @@ export default function BuyerSignUp() {
     function handleImage(e){
         setProfilePic(e.target.files[0]);
     };
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+    const handleOk = () => {
+      setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+      setIsModalOpen(false);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,14 +54,16 @@ export default function BuyerSignUp() {
         formData.append('lname', lname);
         formData.append('profilePic', profilePic);
         
-        console.log(...formData.values());
+        // console.log(...formData.values());
 
         const respose = await axios.post(`${process.env.REACT_APP_API_URL}/api/buyer/signup`, formData,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
         });
-        console.log(respose.data);
+        if(respose.data.message === "email already exists"){
+            showModal();
+        }
     };
 
     useEffect(() => {
@@ -62,8 +75,9 @@ export default function BuyerSignUp() {
     },[])
 
   return (
-
-    <div className="container-fluid main-page login-signup">
+<>
+<Modal title="Email Already Registered" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}></Modal>
+<div className="container-fluid main-page login-signup">
         <div className="row main-page">
             <div className="col-12 col-lg-6 main-page">
                 <div className="main-page-image-section">
@@ -129,5 +143,6 @@ export default function BuyerSignUp() {
             </div>
         </div>
     </div>
+</>
   )
 }
