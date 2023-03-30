@@ -4,6 +4,7 @@ import $ from 'jquery';
 import "jquery-ui-dist/jquery-ui";
 import { useEffect } from 'react';
 import {Popover} from 'antd';
+import axios from 'axios';
 
 export default function SellerLogin() {
     const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ export default function SellerLogin() {
     const [companyLocation, setCompanyLocation] = useState('');
     const [companayDescription, setCompanyDescription] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('email', email);
@@ -33,7 +34,13 @@ export default function SellerLogin() {
         formData.append('companyLocation', companyLocation);
         formData.append('companayDescription', companayDescription);
 
-        //console.log(...formData.values());
+        console.log(...formData.values());
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/seller/signup`, formData, {
+            headers: {  
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        console.log(response.data);
     };
 
     useEffect(() => {
