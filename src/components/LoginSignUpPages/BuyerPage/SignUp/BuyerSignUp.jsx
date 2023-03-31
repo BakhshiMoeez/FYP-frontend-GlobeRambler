@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { Popover } from 'antd';
 import axios from 'axios';
 import { Modal } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 export default function BuyerSignUp() {
     
@@ -14,6 +15,7 @@ export default function BuyerSignUp() {
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
     const [profilePic, setProfilePic] = useState('');
+    const navigate = useNavigate();
 
     function handleEmail(e){
         setEmail(e.target.value);
@@ -63,6 +65,10 @@ export default function BuyerSignUp() {
         });
         if(respose.data.message === "email already exists"){
             showModal();
+        }
+        else{
+            alert('Sign Up Successful');
+            navigate('/buyerLogin');
         }
     };
 
