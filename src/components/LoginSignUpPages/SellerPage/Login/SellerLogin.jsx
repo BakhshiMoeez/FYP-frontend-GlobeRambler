@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import axios from 'axios';
 import './SellerLogin.css';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export default function SellerLogin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const Navigate = useNavigate();
 
     function sellerEmailHandler(e) {
         setEmail(e.target.value);
@@ -17,8 +20,18 @@ export default function SellerLogin() {
     const handleSubmit = async (e) => {  
         e.preventDefault();
         console.log(email, password);
-        const respose = await axios.post('http://localhost:3500/api/seller/login', {email, password});
-        console.log(respose.data);
+        const response = await axios.post('http://localhost:3500/api/seller/login', {email, password});
+        if(response.data.message === 'email does not exist'){
+            alert('Given Email is not Registered');
+        }
+        else if(response.data.message === 'invalid password'){
+            alert('Given Password is Incorrect');
+        }
+        else{
+            alert('Login Successful');
+            Cookies.set('sellerEmail', email);
+            Navigate('/sellerProfile');
+        }
     }
 
   return (

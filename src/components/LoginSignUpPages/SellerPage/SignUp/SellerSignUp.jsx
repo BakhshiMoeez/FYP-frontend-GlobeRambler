@@ -5,6 +5,7 @@ import "jquery-ui-dist/jquery-ui";
 import { useEffect } from 'react';
 import {Popover} from 'antd';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 export default function SellerLogin() {
     const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ export default function SellerLogin() {
     const [companyName, setCompanyName] = useState('');
     const [companyLocation, setCompanyLocation] = useState('');
     const [companayDescription, setCompanyDescription] = useState('');
-
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -40,8 +41,12 @@ export default function SellerLogin() {
                 'Content-Type': 'multipart/form-data'
             }
         });
-        if(response.status === 400){
-            console.log("Error");
+        if(response.data.message === "email already exists"){
+            alert('Email already exists');
+        }
+        else{
+            alert('Sign Up Successful');
+            navigate('/sellerLogin');
         }
     };
 

@@ -6,6 +6,8 @@ import BuyerLogin from "./components/LoginSignUpPages/BuyerPage/Login/BuyerLogin
 import SellerSignUp from "./components/LoginSignUpPages/SellerPage/SignUp/SellerSignUp";
 import SellerLogin from "./components/LoginSignUpPages/SellerPage/Login/SellerLogin";
 import PostTour from "./components/PostTourPage/PostTour";
+import BuyerProfile from "./components/ProfilePages/Buyer/BuyerProfile";
+import SellerProfile from "./components/ProfilePages/Seller/SellerProfile";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -21,6 +23,8 @@ function App() {
         <Route path="/postTour" element={<PostTour />} />
         <Route path="/buyingDashboard" element={<BuyingDashboard />} />
         <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/buyerProfile" element={<BuyerProfile />} />
+        <Route path="/sellerProfile" element={<SellerProfile />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
 import './BuyerLogin.css';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export default function BuyerLogin() {
     const [email, setEmail] = useState('abc@gmail.com');
     const [password, setPassword] = useState('abc');
-
+    const Navigate = useNavigate();
+    
     function buyerEmailHandler(e) {
         setEmail(e.target.value);
     };
@@ -18,7 +21,17 @@ export default function BuyerLogin() {
         e.preventDefault();
         console.log(email, password);
         const response = await axios.post('http://localhost:3500/api/buyer/login', {email, password});
-        console.log(response.data);
+        if(response.data.message === 'email does not exist'){
+            alert('Given Email is not Registered');
+        }
+        else if(response.data.message === 'invalid password'){
+            alert('Given Password is Incorrect');
+        }
+        else{
+            alert('Login Successful');
+            Cookies.set('buyerEmail', email);
+            Navigate('/buyerProfile');
+        }
     };
 
   return (
