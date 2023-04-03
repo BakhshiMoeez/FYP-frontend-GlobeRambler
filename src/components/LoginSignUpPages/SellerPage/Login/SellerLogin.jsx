@@ -3,11 +3,16 @@ import axios from 'axios';
 import './SellerLogin.css';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
+import { setProfilePath } from '../../../../reduxElements/profilePathSlice';
 
 export default function SellerLogin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const Navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function sellerEmailHandler(e) {
         setEmail(e.target.value);
@@ -22,14 +27,15 @@ export default function SellerLogin() {
         console.log(email, password);
         const response = await axios.post('http://localhost:3500/api/seller/login', {email, password});
         if(response.data.message === 'email does not exist'){
-            alert('Given Email is not Registered');
+            toast.error('Given Email is not Registered');
         }
         else if(response.data.message === 'invalid password'){
-            alert('Given Password is Incorrect');
+            toast.error('Invalid Password');
         }
         else{
-            alert('Login Successful');
+            toast.success('Login Successful');
             Cookies.set('sellerEmail', email);
+            dispatch(setProfilePath('/sellerProfile'));
             Navigate('/sellerProfile');
         }
     }

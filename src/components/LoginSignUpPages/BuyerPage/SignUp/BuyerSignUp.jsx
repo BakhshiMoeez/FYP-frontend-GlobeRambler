@@ -7,6 +7,8 @@ import { Popover } from 'antd';
 import axios from 'axios';
 import { Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function BuyerSignUp() {
     
@@ -64,10 +66,11 @@ export default function BuyerSignUp() {
             }
         });
         if(respose.data.message === "email already exists"){
-            showModal();
+            toast.warning('Email Already Registered');
+            //showModal();
         }
         else{
-            alert('Sign Up Successful');
+            toast.success('Sign Up Successful');
             navigate('/buyerLogin');
         }
     };

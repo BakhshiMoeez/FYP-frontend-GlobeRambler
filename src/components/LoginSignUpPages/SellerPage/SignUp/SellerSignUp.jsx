@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import {Popover} from 'antd';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SellerLogin() {
     const [email, setEmail] = useState('');
@@ -42,10 +44,10 @@ export default function SellerLogin() {
             }
         });
         if(response.data.message === "email already exists"){
-            alert('Email already exists');
+            toast.warning('Email already exists');
         }
         else{
-            alert('Sign Up Successful');
+            toast.success('Account created successfully');
             navigate('/sellerLogin');
         }
     };

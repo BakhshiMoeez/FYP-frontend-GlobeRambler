@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
+    const profilePath = useSelector(state => state.auth.profilePath);
   return (
     <>
     <div className="Navbar-main-container">
@@ -16,7 +18,7 @@ export default function Navbar() {
                     <li className='navbar-li'><NavLink className="navlink" to='/buyingDashboard'>Tour</NavLink></li>
                     <li className='navbar-li'><NavLink className="navlink" to='/aboutus'>About us</NavLink></li>
                     <li className='navbar-li'>Contact us</li>
-                    <li className='navbar-li'>Profile</li>
+                    <li className='navbar-li'><NavLink className="navlink" to={profilePath}>Profile</NavLink></li>
                 </ul>
             </div>
         </div>

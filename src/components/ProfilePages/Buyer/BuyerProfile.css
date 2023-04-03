@@ -1,0 +1,66 @@
+.profile-info-container a:hover {
+    text-decoration: none;
+    color: unset;
+    cursor: pointer;
+}
+
+.profile-info .Navbar-main-container li,
+.profile-info .Navbar-main-container li a {
+    color: #000;
+}
+
+.profile-info-container {
+    margin-top: 140px;
+    background: #fff;
+    padding-left: 20px;
+}
+
+.profile-info-wrapper {
+    display: flex;
+}
+
+.profile-info-img-wrapper {
+    width: 25%;
+    position: relative;
+    bottom: 60px;
+}
+
+.profile-info-details {
+    width: 70%;
+    padding-left: 5%;
+    padding-top: 40px;
+}
+
+img.profile-info-image {
+    width: 100%;
+}
+
+.profile-info .card-section-main-container {
+    margin-top: 100px;
+}
+
+h3.profile-info-name {
+    color: #2C3C4D;
+    text-transform: capitalize;
+}
+
+h6.profile-info-location {
+    color: #8C959F;
+    text-transform: capitalize;
+}
+
+.profile-info-email-phone-div {
+    display: flex;
+    max-width: 500px;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+.profile-info-email-phone-div span {
+    margin-right: 20px;
+}
+
+.profile-info-email,
+.profile-info-phone {
+    font-size: 16px;
+    color: #8C959F;
+}

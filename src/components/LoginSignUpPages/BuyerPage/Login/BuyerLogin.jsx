@@ -3,11 +3,16 @@ import axios from 'axios';
 import './BuyerLogin.css';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
+import { setProfilePath } from '../../../../reduxElements/profilePathSlice';
 
 export default function BuyerLogin() {
     const [email, setEmail] = useState('abc@gmail.com');
     const [password, setPassword] = useState('abc');
     const Navigate = useNavigate();
+    const dispatch = useDispatch();
     
     function buyerEmailHandler(e) {
         setEmail(e.target.value);
@@ -22,14 +27,15 @@ export default function BuyerLogin() {
         console.log(email, password);
         const response = await axios.post('http://localhost:3500/api/buyer/login', {email, password});
         if(response.data.message === 'email does not exist'){
-            alert('Given Email is not Registered');
+            toast.error('Given Email is not Registered');
         }
         else if(response.data.message === 'invalid password'){
-            alert('Given Password is Incorrect');
+            toast.error('Invalid Password');
         }
         else{
-            alert('Login Successful');
+            toast.success('Login Successful');
             Cookies.set('buyerEmail', email);
+            dispatch(setProfilePath('/buyerProfile'));
             Navigate('/buyerProfile');
         }
     };

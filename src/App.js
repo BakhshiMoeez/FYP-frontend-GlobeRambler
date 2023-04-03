@@ -10,10 +10,12 @@ import BuyerProfile from "./components/ProfilePages/Buyer/BuyerProfile";
 import SellerProfile from "./components/ProfilePages/Seller/SellerProfile";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<MainLoginPage />} />
         <Route path="/buyerSignUp" element={<BuyerSignUp />} />
