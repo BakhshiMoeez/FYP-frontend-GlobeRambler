@@ -16,8 +16,18 @@ export default function BuyerSignUp() {
     const [password, setPassword] = useState('');
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
-    const [profilePic, setProfilePic] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    //const [profilePic, setProfilePic] = useState('');
     const navigate = useNavigate();
+
+    function handlePhone(e){
+        setPhone(e.target.value);
+    };
+
+    function handleAddress(e){
+        setAddress(e.target.value);
+    };
 
     function handleEmail(e){
         setEmail(e.target.value);
@@ -35,9 +45,10 @@ export default function BuyerSignUp() {
         setLname(e.target.value);
     };
 
-    function handleImage(e){
-        setProfilePic(e.target.files[0]);
-    };
+    // function handleImage(e){
+    //     setProfilePic(e.target.files[0]);
+    // };
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
       setIsModalOpen(true);
@@ -56,7 +67,9 @@ export default function BuyerSignUp() {
         formData.append('password', password);
         formData.append('fname', fname);
         formData.append('lname', lname);
-        formData.append('profilePic', profilePic);
+        formData.append('phone', phone);
+        formData.append('address', address);
+        //formData.append('profilePic', profilePic);
         
         // console.log(...formData.values());
 
@@ -134,12 +147,20 @@ export default function BuyerSignUp() {
                             <label htmlFor="password">Password</label>
                             <input type="password" required="required" id="password" name="password" onChange={handlePassword}/>
                         </div>
-                        <div className="custom-file login-signup">
+                        <div className="form-field login-signup">
+                            <label htmlFor="phone">Phone</label>
+                            <input type="text" required="required" id="password" name="phone" onChange={handlePhone}/>
+                        </div>
+                        <div className="form-field login-signup">
+                            <label htmlFor="address">Address</label>
+                            <input type="text" required="required" id="password" name="address" onChange={handleAddress}/>
+                        </div>
+                        {/* <div className="custom-file login-signup">
                             <Popover title="Size of Image should be less than 10MB">
                                 <input type="file" required="required" className="custom-file-input" id="customFile" onChange={handleImage} />
                             </Popover>
                             <label className="custom-file-label" htmlFor="customFile">Choose file</label>
-                        </div>
+                        </div> */}
                         <div className="form-field login-signup checkbox">
                             <input type="checkbox" required="required" id="privacy-policy" name="privacy-policy" value="Bike" />
                             <label htmlFor="privacy-policy"> Privacy Policy</label><br />

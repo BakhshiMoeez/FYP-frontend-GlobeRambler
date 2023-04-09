@@ -29,7 +29,7 @@ export default function SellerLogin() {
         formData.append('password', password);
         formData.append('fname', fname);
         formData.append('lname', lname);
-        formData.append('profilePic', profilePic);
+        //formData.append('profilePic', profilePic);
         formData.append('creditCardNumber', creditCardNumber);
         formData.append('phone', phone);
         formData.append('address', address);
@@ -148,12 +148,12 @@ export default function SellerLogin() {
                                 <label htmlFor="company-description">Company Description</label>
                                 <input onChange={(e) => setCompanyDescription(e.target.value)} type="text" required="required" id="company-description" name="company-description" />
                             </div>
-                        <div className="custom-file login-signup">
+                        {/* <div className="custom-file login-signup">
                             <Popover title="Size of Image should be less than 10MB">
                                 <input onChange={(e) => setProfilePic(e.target.files[0])} type="file" required="required" className="custom-file-input" id="customFile" />
                             </Popover>
                             <label className="custom-file-label" htmlFor="customFile">Choose file</label>
-                        </div>
+                        </div> */}
                         <div className="form-field login-signup checkbox">
                             <input type="checkbox" required="required" id="privacy-policy" name="privacy-policy" value="Bike" />
                             <label htmlFor="privacy-policy"> Privacy Policy</label><br />
