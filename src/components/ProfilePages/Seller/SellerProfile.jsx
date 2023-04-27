@@ -5,9 +5,12 @@ import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import CardSection from "../../CardSection/CardSection";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function SellerProfile() {
   const sellerEmail = Cookies.get('sellerEmail');
+  
+  const Navigate = useNavigate();
 
   const [sellerInfo, setSellerInfo] = useState({
     firstName: '',
@@ -62,6 +65,11 @@ export default function SellerProfile() {
     }
   };
 
+  function navigateToPostTour(){
+    Cookies.set('sellerProfilePic', sellerInfo.profilePic);
+    Navigate('/postTour');
+  };
+
   return (
     <div className="Aboutus-main-container profile-info">
         {/*banner image*/}
@@ -88,11 +96,13 @@ export default function SellerProfile() {
                 <div className="profile-info-email-phone-div">
                   <a className="profile-info-email" href="mailto:ans@gmail.com"><span><img src="/asset/profile-pages/email-icon.png" alt="" /></span>{sellerInfo.email}</a>
                   <a className="profile-info-phone" href="tel:+923034098015"><span><img src="/asset/profile-pages/phone-icon.png" alt="" /></span>{sellerInfo.phone}</a>
+                  <button className='btn btn-primary' onClick={navigateToPostTour}>Post Tour</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         {/* Card Section */}
         <CardSection />
 

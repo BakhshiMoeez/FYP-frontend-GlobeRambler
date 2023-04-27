@@ -1,5 +1,7 @@
 import './CardSection.css';
 import { Avatar, Card } from 'antd';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 const { Meta } = Card;
 
 const dummyData = [
@@ -63,6 +65,22 @@ const dummyData = [
 
 
 export default function CardSection() {
+    const [Tours, setTours] = useState([]);
+    
+    async function fetchAllTheTours()
+    {
+        const response = await axios.get('http://localhost:3500/api/tour');
+        setTours(response.data);
+        //console.log(Tours);
+    }
+
+    useEffect(() => {
+        try{
+            fetchAllTheTours();
+        }catch(err){
+            console.log(err.message);
+        }
+    }, []);
   return (
     <>
     <div className="card-section-main-container">
@@ -72,15 +90,15 @@ export default function CardSection() {
                 <div className="card-section-cards-holder">
                     
                     {
-                        dummyData.map((item) => (
+                        Tours.map((item) => (
                             <Card 
                                 style={{width: 220, marginBottom: 20}}
-                                cover = {<img src={item.image} alt="img"/>}
+                                cover = {<img src={item.coverImage} alt="img"/>}
                             >
                                 <Meta
-                                    avatar={<Avatar src="/asset/buyerDashboard/4.png" />}
+                                    avatar={<Avatar src={item.sellerProfilePic} />}
                                     title={item.title}
-                                    description={`${item.location} ${item.price}`}
+                                    description={`${item.description}  ${'Rs.'}${item.basePrice}`}
                                 />
                             </Card>
                         ))
