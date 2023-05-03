@@ -8,6 +8,7 @@ import SellerLogin from "./components/LoginSignUpPages/SellerPage/Login/SellerLo
 import PostTour from "./components/PostTourPage/PostTour";
 import BuyerProfile from "./components/ProfilePages/Buyer/BuyerProfile";
 import SellerProfile from "./components/ProfilePages/Seller/SellerProfile";
+import TourDetail from "./components/TourDetail/TourDetail";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -27,6 +28,7 @@ function App() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/buyerProfile" element={<BuyerProfile />} />
         <Route path="/sellerProfile" element={<SellerProfile />} />
+        <Route path="/tourDetail/:id" element={<TourDetail />} />
       </Routes>
     </BrowserRouter>
   );

@@ -97,7 +97,8 @@ export default function CardSection() {
                             >
                                 <Meta
                                     avatar={<Avatar src={item.sellerProfilePic} />}
-                                    title={item.title}
+                                    title={<a href={`/tourDetail/${item._id}`}  style={{ color: 'black' }} >{item.title}</a>}
+
                                     description={`${item.description}  ${'Rs.'}${item.basePrice}`}
                                 />
                             </Card>
