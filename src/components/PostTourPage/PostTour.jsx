@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "antd/dist/reset.css";
 import "./PostTour.css";
+import $ from 'jquery';
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import {
@@ -127,6 +128,111 @@ export default function PostTour() {
       });
   };
 
+// A $( document ).ready() block.
+$( document ).ready(function() {
+  //FOR BRONZE
+  $("#bronze-photography").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-bronze-photography").show();
+    }
+    else {
+      $(".post-tour-categories-bronze-photography").hide();
+    }
+  });
+  $("#bronze-hotel").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-bronze-hotel").show();
+    }
+    else {
+      $(".post-tour-categories-bronze-hotel").hide();
+    }
+  });
+  $("#bronze-meal").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-bronze-meal").show();
+    }
+    else {
+      $(".post-tour-categories-bronze-meal").hide();
+    }
+  });
+  $("#bronze-car").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-bronze-car").show();
+    }
+    else {
+      $(".post-tour-categories-bronze-car").hide();
+    }
+  });
+
+  //FOR SILVER
+  $("#silver-photography").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-silver-photography").show();
+    }
+    else {
+      $(".post-tour-categories-silver-photography").hide();
+    }
+  });
+  $("#silver-hotel").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-silver-hotel").show();
+    }
+    else {
+      $(".post-tour-categories-silver-hotel").hide();
+    }
+  });
+  $("#silver-meal").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-silver-meal").show();
+    }
+    else {
+      $(".post-tour-categories-silver-meal").hide();
+    }
+  });
+  $("#silver-car").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-silver-car").show();
+    }
+    else {
+      $(".post-tour-categories-silver-car").hide();
+    }
+  });
+
+  //FOR SILVER
+  $("#gold-photography").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-gold-photography").show();
+    }
+    else {
+      $(".post-tour-categories-gold-photography").hide();
+    }
+  });
+  $("#gold-hotel").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-gold-hotel").show();
+    }
+    else {
+      $(".post-tour-categories-gold-hotel").hide();
+    }
+  });
+  $("#gold-meal").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-gold-meal").show();
+    }
+    else {
+      $(".post-tour-categories-gold-meal").hide();
+    }
+  });
+  $("#gold-car").change(function() {
+    if(this.checked) {
+        $(".post-tour-categories-gold-car").show();
+    }
+    else {
+      $(".post-tour-categories-gold-car").hide();
+    }
+  });
+});
+
   return (
     <>
       <div className="post-tour-main-container">
@@ -193,6 +299,10 @@ export default function PostTour() {
                 <Tabs>
                   <Tabs.TabPane tab="Bronze" key="bronze">
                     <div className="post-tour-categories-bronze">
+                      <div className="checkbox-post-tour bronze-photography">
+                        <input type="checkbox" id="bronze-photography" name="bronze-photography" value="bronze-photography"/>
+                        <label htmlFor="Bronze Photography"> <b>Bronze Photography</b> </label><br/>
+                      </div>              
                       <div className="post-tour-categories-bronze-photography">
                         <fieldset>
                           <legend>Bronze Photography</legend>
@@ -224,6 +334,10 @@ export default function PostTour() {
                           ></Input>
                         </fieldset>
                       </div>
+                      <div className="checkbox-post-tour bronze-hotel">
+                        <input type="checkbox" id="bronze-hotel" name="bronze-hotel" value="bronze-hotel"/>
+                        <label htmlFor="Bronze Hotel"> <b>Bronze Hotel</b> </label><br/>
+                      </div> 
                       <div className="post-tour-categories-bronze-hotel">
                         <fieldset>
                           <legend>Bronze Hotel</legend>
@@ -255,6 +369,10 @@ export default function PostTour() {
                           ></Input>
                         </fieldset>
                       </div>
+                      <div className="checkbox-post-tour bronze-meal">
+                        <input type="checkbox" id="bronze-meal" name="bronze-meal" value="bronze-meal"/>
+                        <label htmlFor="Bronze Meal"> <b>Bronze Meal</b> </label><br/>
+                      </div> 
                       <div className="post-tour-categories-bronze-meal">
                         <fieldset>
                           <legend>Bronze Meal</legend>
@@ -286,6 +404,10 @@ export default function PostTour() {
                           ></Input>
                         </fieldset>
                       </div>
+                      <div className="checkbox-post-tour bronze-car">
+                        <input type="checkbox" id="bronze-car" name="bronze-car" value="bronze-car"/>
+                        <label htmlFor="Bronze car"> <b>Bronze Car</b> </label><br/>
+                      </div> 
                       <div className="post-tour-categories-bronze-car">
                         <fieldset>
                           <legend>Bronze Car</legend>
@@ -340,6 +462,10 @@ export default function PostTour() {
 
                   <Tabs.TabPane tab="Silver" key="silver">
                     <div className="post-tour-categories-silver">
+                      <div className="checkbox-post-tour silver-photography">
+                        <input type="checkbox" id="silver-photography" name="Silver-photography" value="Silver-photography"/>
+                        <label htmlFor="Silver photography"> <b>Silver Photography</b> </label><br/>
+                      </div> 
                       <div className="post-tour-categories-silver-photography">
                         <fieldset>
                           <legend>Photography</legend>
@@ -371,6 +497,10 @@ export default function PostTour() {
                           ></Input>
                         </fieldset>
                       </div>
+                      <div className="checkbox-post-tour silver-hotel">
+                        <input type="checkbox" id="silver-hotel" name="Silver-hotel" value="Silver-hotel"/>
+                        <label htmlFor="Silver hotel"> <b>Silver Hotel</b> </label><br/>
+                      </div> 
                       <div className="post-tour-categories-silver-hotel">
                         <fieldset>
                           <legend>Silver Hotel</legend>
@@ -402,6 +532,10 @@ export default function PostTour() {
                           ></Input>
                         </fieldset>
                       </div>
+                      <div className="checkbox-post-tour silver-meal">
+                        <input type="checkbox" id="silver-meal" name="Silver-meal" value="Silver-meal"/>
+                        <label htmlFor="Silver meal"> <b>Silver Meal</b> </label><br/>
+                      </div> 
                       <div className="post-tour-categories-silver-meal">
                         <fieldset>
                           <legend>Silver Meal</legend>
@@ -432,6 +566,10 @@ export default function PostTour() {
                             style={{margin: "0" }}
                           ></Input>
                         </fieldset>
+                      </div>
+                      <div className="checkbox-post-tour silver-car">
+                        <input type="checkbox" id="silver-car" name="Silver-car" value="Silver-car"/>
+                        <label htmlFor="Silver car"> <b>Silver Car</b> </label><br/>
                       </div>
                       <div className="post-tour-categories-silver-car">
                         <fieldset>
@@ -487,6 +625,10 @@ export default function PostTour() {
 
                   <Tabs.TabPane tab="Gold" key="gold">
                     <div className="post-tour-categories-gold">
+                      <div className="checkbox-post-tour gold-photography">
+                        <input type="checkbox" id="gold-photography" name="gold-photography" value="gold-photography"/>
+                        <label htmlFor="gold photography"> <b>Gold Photography</b> </label><br/>
+                      </div>
                       <div className="post-tour-categories-gold-photography">
                         <fieldset>
                           <legend>Gold Photography</legend>
@@ -517,6 +659,10 @@ export default function PostTour() {
                             style={{margin: "0" }}
                           ></Input>
                         </fieldset>
+                      </div>
+                      <div className="checkbox-post-tour gold-hotel">
+                        <input type="checkbox" id="gold-hotel" name="gold-hotel" value="gold-hotel"/>
+                        <label htmlFor="gold hotel"> <b>Gold Hotel</b> </label><br/>
                       </div>
                       <div className="post-tour-categories-gold-hotel">
                         <fieldset>
@@ -549,6 +695,10 @@ export default function PostTour() {
                           ></Input>
                         </fieldset>
                       </div>
+                      <div className="checkbox-post-tour gold-meal">
+                        <input type="checkbox" id="gold-meal" name="gold-meal" value="gold-meal"/>
+                        <label htmlFor="gold meal"> <b>Gold Meal</b> </label><br/>
+                      </div>
                       <div className="post-tour-categories-gold-meal">
                         <fieldset>
                           <legend>Gold Meal</legend>
@@ -579,6 +729,10 @@ export default function PostTour() {
                             style={{margin: "0" }}
                           ></Input>
                         </fieldset>
+                      </div>
+                      <div className="checkbox-post-tour gold-car">
+                        <input type="checkbox" id="gold-car" name="gold-car" value="gold-car"/>
+                        <label htmlFor="gold car"> <b>Gold Car</b> </label><br/>
                       </div>
                       <div className="post-tour-categories-gold-car">
                         <fieldset>
