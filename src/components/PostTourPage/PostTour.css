@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.post-tour-categories-bronze-photography,
+.post-tour-categories-bronze-hotel,
+.post-tour-categories-bronze-meal,
+.post-tour-categories-bronze-car,
+.post-tour-categories-silver-photography,
+.post-tour-categories-silver-hotel,
+.post-tour-categories-silver-meal,
+.post-tour-categories-silver-car,
+.post-tour-categories-gold-photography,
+.post-tour-categories-gold-hotel,
+.post-tour-categories-gold-meal,
+.post-tour-categories-gold-car {
+    display: none;
+}
+
+.post-tour-main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.post-tour-inside-container{
+    display: flex;
+    width: 85%;
+    position: relative;
+    padding: 20px;
+    top: 0;
+    flex-direction: column;
+}
+
+
+.post-tour-basic-form-title{
+    flex-direction: column;
+    margin: 5rem;
+}
+
+.post-tour-info-container{
+    border: 1px solid #d8cecb;
+    border-radius: 40px;
+    padding: 1.5rem;
+}
+
+.post-tour-info{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.post-tour-info-pri{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+
+ .post-tour-info-sec{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+
+ .post-tour-cover-photo{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .post-tour-cover-photo-upload-section{
+    position: relative;
+    border: 1px solid #e0d8d5;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% 30% / 40% 10%;
+ }
+
+.post-tour-publish-button{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-tour-navbar{
+    background-color: black;
+}
+
+.checkbox-post-tour label {
+    padding: 20px 0;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 24px;
+}
+
+.checkbox-post-tour input {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}

@@ -1,0 +1,5 @@
+@media screen and (max-width: 991px) {
+    .main-page.login-signup .row.main-page.seller {
+        flex-direction: column-reverse;
+    }
+}

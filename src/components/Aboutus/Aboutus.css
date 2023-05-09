@@ -1,0 +1,204 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The css about banner + contents on banner */
+.Aboutus-main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Aboutus-banner-image{
+    width: 100%;
+    position: relative;
+}
+
+.aboutus-inside-container{
+    width: 80%;
+    position: absolute;
+    padding: 20px;
+    top: 0;
+}
+
+.aboutus-inside-container-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+
+}
+
+.aboutus-banner-text{
+    color: white;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.aboutus-banner-text-lower
+{
+    margin-top: -60px;
+    color: white;
+}
+
+.aboutus-form-input
+{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 12px 15px;
+    width: 400px;
+}
+
+.aboutus-search-button
+{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 12px 15px;
+    background-color: var(--bg-orange);
+    width: 120px;
+    color: var(--bg-white);
+    margin-left: 10px;
+    cursor: pointer;
+    /* width: 300px; */
+}
+
+/* ================================ */
+
+/* The black background text area */
+.aboutus-black-background-text
+{
+    width: 100%;
+    /* height: 500px; */
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutus-black-background-text-width
+{
+    width: 40%;
+    padding: 40px;
+}
+
+.aboutus-black-background-text-width p{
+    text-align: center;
+}
+
+.aboutus-black-background-flex{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ================================================ */
+
+/* Team Intro CSS */
+.Aboutus-team
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    margin-top: 60px;
+}
+.team-text p{
+    font-size: 2rem;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+
+.team-intro-cards
+{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.team-card img{
+    width: 170px;
+    margin-bottom: 30px;
+}
+
+.team-card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-card b{
+    font-size: 1.3rem;
+}
+
+/* ================================================ */
+
+/* Customer Reviews Section */
+.aboutus-customers-reviews{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.aboutus-customer-reviews-text
+{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 50px;
+}
+
+.aboutus-customer-reviews-cards
+{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aboutus-customer-reviews-card
+{
+    width: 280px;
+    height: 370px;
+    background-color: var(--bg-orange);
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutus-customer-reviews-card b{
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.aboutus-customer-reviews-card p{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.aboutus-customer-reviews-card img{
+    width: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+/* ================================================ */

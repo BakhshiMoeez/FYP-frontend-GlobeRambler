@@ -1,0 +1,105 @@
+.tour-details-container .container-fluid,
+.tour-details-container .row,
+.tour-details-images,
+.tour-details-tabs {
+    padding: 0;
+    margin: 0;
+}
+
+.tour-details-container {
+    max-width: 1400px;
+    padding: 0 20px;
+    /* margin: 120px auto; */
+}
+
+.tour-details-tabs .nav-tabs .nav-link {
+    color: black;
+    display: block;
+    background: #FAFAFA;
+    border: 1px solid #D9DADC;
+    padding: 1rem 32.1px;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+}
+
+.tour-details-tabs .nav-tabs .nav-link.active {
+    color: #F1592A;
+    background: transparent;
+    border: 0px solid #D9DADC;
+}
+
+.tour-details-container h1 {
+    font-size: 42px;
+    font-family: none;
+    margin-bottom: 40px;
+}
+
+.tour-details-container .tour-details-tabs {
+    padding-left: 60px;
+}
+
+.tour-details-container .tour-details-tabs-div {
+    border: 1px solid #D9DADC;
+    max-width: 393px;
+}
+
+.tour-details-container .tab-content {
+    padding: 30px 30px;
+}
+
+.tour-details-container .tour-details-package-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tour-details-tabs-description span img {
+    width: 30px;
+    margin-right: 5px;
+}
+
+.tour-details-tabs-description {
+    margin-top: 30px;
+}
+
+.tour-details-tabs-description p {
+    margin-bottom: 30px;
+}
+
+.tour-details-tabs-description .tour-continue-btn {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #F1592A;
+    font-family: inherit;
+    padding: 15px 0;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.tour-details-info {
+    margin-top: 60px;
+}
+
+h3.tour-details-category {
+    font-size: 20px;
+    color: #F1592A;
+}
+
+@media (max-width: 1440px) {
+    .tour-details-container .tour-details-tabs {
+        padding-left: 20px;
+    }
+
+    .tour-details-tabs .nav-tabs .nav-link {
+        padding: 1rem 28px;
+    }
+}
+
+@media (max-width: 992px) {
+    .tour-details-container .tour-details-tabs {
+        padding-left: 0;
+        margin-top: 40px;
+    }
+}
