@@ -791,7 +791,7 @@ $( document ).ready(function() {
               
             </Form>
           </div>
-          <button className="btn btn-primary" onClick={handlePublish}>Submitt</button>
+          <button className="btn btn-primary" onClick={handlePublish}>Submit</button>
         </div>
         <Footer />
       </div>

@@ -87,6 +87,16 @@ h3.tour-details-category {
     color: #F1592A;
 }
 
+@media (max-width: 1400px) {
+    .tour-details-container .tour-details-tabs {
+        padding-left: 20px;
+    }
+
+    .tour-details-tabs .nav-tabs .nav-link {
+        padding: 1rem 32.1px;
+    }
+}
+
 @media (max-width: 992px) {
     .tour-details-container .tour-details-tabs {
         padding-left: 0;
