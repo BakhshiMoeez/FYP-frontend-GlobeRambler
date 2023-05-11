@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SellerProfile() {
   const sellerEmail = Cookies.get('sellerEmail');
-  
+  const [updateProfile, setUpdateProfile] = useState(false);
   const Navigate = useNavigate();
 
   const [sellerInfo, setSellerInfo] = useState({
@@ -70,6 +70,11 @@ export default function SellerProfile() {
     Navigate('/postTour');
   };
 
+  if(updateProfile) { return <UpdateSellerProfile 
+    setUpdatedProfile={setUpdateProfile} 
+    sellerInfo = {sellerInfo}
+  />} 
+
   return (
     <div className="Aboutus-main-container profile-info">
         {/*banner image*/}
@@ -97,6 +102,7 @@ export default function SellerProfile() {
                   <a className="profile-info-email" href="mailto:ans@gmail.com"><span><img src="/asset/profile-pages/email-icon.png" alt="" /></span>{sellerInfo.email}</a>
                   <a className="profile-info-phone" href="tel:+923034098015"><span><img src="/asset/profile-pages/phone-icon.png" alt="" /></span>{sellerInfo.phone}</a>
                   <button className='btn btn-primary' onClick={navigateToPostTour}>Post Tour</button>
+                  <button className='btn btn-primary' onClick={() => {setUpdateProfile(true)}}>Update Profile</button>
                 </div>
               </div>
             </div>
@@ -112,5 +118,186 @@ export default function SellerProfile() {
         <Footer />
 
     </div>
+  )
+}
+
+function UpdateSellerProfile({ setUpdatedProfile, sellerInfo }) {
+  const formStyles = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "400px",
+    height: "600px",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    borderRadius: "20px",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
+    backdropFilter: "blur(10px)",
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    overflow: 'scroll',
+    // alignItems: "center",
+  };
+
+  const labelStyles = {
+    marginBottom: "10px",
+    fontWeight: "bold",
+  };
+
+  const inputStyles = {
+    marginBottom: "20px",
+    padding: "10px",
+    border: "none",
+    borderRadius: "5px",
+    width: "100%",
+    fontSize: "16px",
+  };
+
+  const buttonStyles = {
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    marginRight: "10px",
+  };
+
+  const submitButtonStyles = {
+    backgroundColor: "#f1592a",
+    color: "#ffffff",
+  };
+
+  const closeButtonStyles = {
+    backgroundColor: "#ffffff",
+    color: "#f1592a",
+  };
+
+  const sellerEmail = Cookies.get('sellerEmail');
+
+  const [updatedSellerProfileInfo, setUpdatedSellerProfileInfo] = useState({
+    firstName: sellerInfo.firstName,
+    lastName: sellerInfo.lastName,
+    phone: sellerInfo.phone,
+    email: sellerEmail,
+    address: sellerInfo.address,
+    companyName: sellerInfo.companyName,
+    companyLocation: sellerInfo.companyLocation,
+    companyDescription: sellerInfo.companyDescription,
+  });
+
+  function buyerProfileUpdateFunc(){
+    try{
+      const sellerProfileUpdate = axios.patch(`${process.env.REACT_APP_API_URL}/api/seller/`, updatedSellerProfileInfo );
+      console.log(sellerProfileUpdate.data);
+      setUpdatedProfile(false);
+      window.location.reload();
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
+  return (
+    <>
+    
+    <div style={formStyles}>
+      <h3 style={{marginTop: '220px'}}>Seller Profile Update Form</h3>
+      <label style={labelStyles} htmlFor="first-name" >
+        First Name
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="first-name"
+        name="first-name"
+        value={updatedSellerProfileInfo.firstName}
+        onChange={(e)=>{setUpdatedSellerProfileInfo({...updatedSellerProfileInfo, firstName: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="last-name">
+        Last Name
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="last-name"
+        name="last-name"
+        value={updatedSellerProfileInfo.lastName}
+        onChange={(e)=>{setUpdatedSellerProfileInfo({...updatedSellerProfileInfo, lastName: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="address">
+        Address
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="address"
+        name="address"
+        value={updatedSellerProfileInfo.address}
+        onChange={(e) => {setUpdatedSellerProfileInfo({...updatedSellerProfileInfo, address: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="phone">
+        Phone number
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="phone"
+        name="phone"
+        value={updatedSellerProfileInfo.phone}
+        onChange={(e)=>{setUpdatedSellerProfileInfo({...updatedSellerProfileInfo, phone: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="phone">
+        Company Name
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="phone"
+        name="phone"
+        value={updatedSellerProfileInfo.companyName}
+        onChange={(e)=>{setUpdatedSellerProfileInfo({...updatedSellerProfileInfo, companyName: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="phone">
+        Company Location
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="phone"
+        name="phone"
+        value={updatedSellerProfileInfo.companyLocation}
+        onChange={(e)=>{setUpdatedSellerProfileInfo({...updatedSellerProfileInfo, companyLocation: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="phone">
+        Company Description
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="phone"
+        name="phone"
+        value={updatedSellerProfileInfo.companyDescription}
+        onChange={(e)=>{setUpdatedSellerProfileInfo({...updatedSellerProfileInfo, companyDescription: e.target.value})}}
+        required
+      />
+      <div>
+        <button onClick={buyerProfileUpdateFunc} style={{ ...buttonStyles, ...submitButtonStyles }} className="submit">
+          Submit
+        </button>
+        <button onClick={() => {setUpdatedProfile(false)}} style={{ ...buttonStyles, ...closeButtonStyles }} className="close">
+          Close
+        </button>
+      </div>
+    </div>
+    </>
   )
 }

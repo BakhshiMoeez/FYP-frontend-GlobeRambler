@@ -36,6 +36,7 @@ export default function SellerLogin() {
             toast.success('Login Successful');
             Cookies.set('sellerEmail', email);
             dispatch(setProfilePath('/sellerProfile'));
+            Cookies.set('profilePath', '/sellerProfile');
             Navigate('/sellerProfile');
         }
     }

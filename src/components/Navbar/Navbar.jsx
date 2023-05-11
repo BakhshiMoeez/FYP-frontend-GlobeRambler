@@ -2,9 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
 
 export default function Navbar() {
-    const profilePath = useSelector(state => state.auth.profilePath);
+    //const profilePath = useSelector(state => state.auth.profilePath);
+    const profilePath = Cookies.get('profilePath');
+
   return (
     <>
     <div className="Navbar-main-container">

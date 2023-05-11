@@ -9,6 +9,7 @@ import axios from 'axios';
 export default function BuyerProfile() {
 
   const buyerEmail = Cookies.get('buyerEmail');
+  const [updateProfile, setUpdateProfile] = useState(false);
 
   const [buyerInfo, setBuyerInfo] = useState({
     firstName: '',
@@ -58,8 +59,15 @@ export default function BuyerProfile() {
     }
   }; 
 
+  if(updateProfile) { return <UpdateBuyerProfile 
+      setUpdatedProfile={setUpdateProfile} 
+      buyerInfo = {buyerInfo}
+    />} 
+
   return (
-    <div className="Aboutus-main-container profile-info">
+
+    <>
+      <div className="Aboutus-main-container profile-info">
         {/*banner image*/}
         <img className="Aboutus-banner-image" src="/asset/profile-pages/buyer-bg.png" alt="banner" />
         {/*container to manage the width like container in bootstrap*/}
@@ -82,6 +90,7 @@ export default function BuyerProfile() {
                 <div className="profile-info-email-phone-div">
                   <a className="profile-info-email" href="mailto:ans@gmail.com"><span><img src="/asset/profile-pages/email-icon.png" alt="" /></span>{buyerInfo.email}</a>
                   <a className="profile-info-phone" href="tel:+923034098015"><span><img src="/asset/profile-pages/phone-icon.png" alt="" /></span>{buyerInfo.phone}</a>
+                  <button className='btn btn-primary' onClick={() => {setUpdateProfile(true)}}>Update Profile</button>
                 </div>
               </div>
             </div>
@@ -94,5 +103,150 @@ export default function BuyerProfile() {
         <Footer />
 
     </div>
+    </>
+
+    
   )
 }
+
+function UpdateBuyerProfile({ setUpdatedProfile, buyerInfo }) {
+  const formStyles = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "400px",
+    height: "600px",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    borderRadius: "20px",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
+    backdropFilter: "blur(10px)",
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    // alignItems: "center",
+  };
+
+  const labelStyles = {
+    marginBottom: "10px",
+    fontWeight: "bold",
+  };
+
+  const inputStyles = {
+    marginBottom: "20px",
+    padding: "10px",
+    border: "none",
+    borderRadius: "5px",
+    width: "100%",
+    fontSize: "16px",
+  };
+
+  const buttonStyles = {
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    marginRight: "10px",
+  };
+
+  const submitButtonStyles = {
+    backgroundColor: "#f1592a",
+    color: "#ffffff",
+  };
+
+  const closeButtonStyles = {
+    backgroundColor: "#ffffff",
+    color: "#f1592a",
+  };
+
+  const buyerEmail = Cookies.get('buyerEmail');
+
+  const [updatedBuyerProfileInfo, setUpdatedBuyerProfileInfo] = useState({
+    firstName: buyerInfo.firstName,
+    lastName: buyerInfo.lastName,
+    phone: buyerInfo.phone,
+    email: buyerEmail,
+    address: buyerInfo.address,
+  });
+
+  function buyerProfileUpdateFunc(){
+    try{
+      const buyerProfileUpdate = axios.patch(`${process.env.REACT_APP_API_URL}/api/buyer/`, updatedBuyerProfileInfo );
+      console.log(buyerProfileUpdate.data);
+      setUpdatedProfile(false);
+      window.location.reload();
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
+  return (
+    <>
+    
+    <div style={formStyles}>
+      <h3>Buyer Profile Update Form</h3>
+      <label style={labelStyles} htmlFor="first-name" >
+        First Name
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="first-name"
+        name="first-name"
+        value={updatedBuyerProfileInfo.firstName}
+        onChange={(e)=>{setUpdatedBuyerProfileInfo({...updatedBuyerProfileInfo, firstName: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="last-name">
+        Last Name
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="last-name"
+        name="last-name"
+        value={updatedBuyerProfileInfo.lastName}
+        onChange={(e)=>{setUpdatedBuyerProfileInfo({...updatedBuyerProfileInfo, lastName: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="address">
+        Address
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="address"
+        name="address"
+        value={updatedBuyerProfileInfo.address}
+        onChange={(e) => {setUpdatedBuyerProfileInfo({...updatedBuyerProfileInfo, address: e.target.value})}}
+        required
+      />
+      <label style={labelStyles} htmlFor="phone">
+        Phone number
+      </label>
+      <input
+        style={inputStyles}
+        type="text"
+        id="phone"
+        name="phone"
+        value={updatedBuyerProfileInfo.phone}
+        onChange={(e)=>{setUpdatedBuyerProfileInfo({...updatedBuyerProfileInfo, phone: e.target.value})}}
+        required
+      />
+      <div>
+        <button onClick={buyerProfileUpdateFunc} style={{ ...buttonStyles, ...submitButtonStyles }} className="submit">
+          Submit
+        </button>
+        <button onClick={() => {setUpdatedProfile(false)}} style={{ ...buttonStyles, ...closeButtonStyles }} className="close">
+          Close
+        </button>
+      </div>
+    </div>
+    </>
+  )
+}
+
