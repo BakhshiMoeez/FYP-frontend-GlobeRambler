@@ -10,43 +10,56 @@ const TourDetail = () => {
       title: "N/A",
       desc: "N/A",
       coverImage: "N/A",
-      basePrice: "N/A",
+      basePrice: "0",
       sellerEmail: "N/A",
       sellerProfilePic: "N/A",
       bronzePhotographyDesc: "N/A",
-      bronzePhotographyPrice: "N/A",
+      bronzePhotographyPrice: "0",
       bronzeHotelDesc: "N/A",
-      bronzeHotelPrice: "N/A",
+      bronzeHotelPrice: "0",
       bronzeMealDesc: "N/A",
-      bronzeMealPrice: "N/A",
+      bronzeMealPrice: "0",
       bronzeCarDesc: "N/A",
-      bronzeCarPrice: "N/A",
-      bronzeAdditionalInfo: "N/A",
+      bronzeCarPrice: "0",
+      bronzeAddInfo: "N/A",
       silverPhotographyDesc: "N/A",
-      silverPhotographyPrice: "N/A",
+      silverPhotographyPrice: "0",
       silverHotelDesc: "N/A",
-      silverHotelPrice: "N/A",
+      silverHotelPrice: "0",
       silverMealDesc: "N/A",
-      silverMealPrice: "N/A",
+      silverMealPrice: "0",
       silverCarDesc: "N/A",
-      silverCarPrice: "N/A",
-      silverAdditionalInfo: "N/A",
+      silverCarPrice: "0",
+      silverAddInfo: "N/A",
       goldPhotographyDesc: "N/A",
-      goldPhotographyPrice: "N/A",
+      goldPhotographyPrice: "0",
       goldHotelDesc: "N/A",
-      goldHotelPrice: "N/A",
+      goldHotelPrice: "0",
       goldMealDesc: "N/A",
-      goldMealPrice: "N/A",
+      goldMealPrice: "0",
       goldCarDesc: "N/A",
-      goldCarPrice: "N/A",
-      goldAdditionalInfo: "N/A"
+      goldCarPrice: "0",
+      goldAddInfo: "N/A"
     };
     const [tour, setTour] = useState(TourDetail);
+    
+    const [bronzePrice, setBronzePrice] = useState(0);
+    const [silverPrice, setSilverPrice] = useState(0);
+    const [goldPrice, setGoldPrice] = useState(0);
+
     useEffect(() => {
         axios.get(`http://localhost:3500/api/tour/${id}`)
         .then((res) => {
             setTour(res.data);
+            
+            setBronzePrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.bronzePhotographyPrice, 10) + parseInt(res.data.bronzeHotelPrice, 10) + parseInt(res.data.bronzeMealPrice, 10) + parseInt(res.data.bronzeCarPrice, 10));
+            setSilverPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.silverPhotographyPrice, 10) + parseInt(res.data.silverHotelPrice, 10) + parseInt(res.data.silverMealPrice, 10) + parseInt(res.data.silverCarPrice, 10));
+            setGoldPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.goldPhotographyPrice, 10) + parseInt(res.data.goldHotelPrice, 10) + parseInt(res.data.goldMealPrice, 10) + parseInt(res.data.goldCarPrice, 10));
+            
             console.log(tour);
+            console.log(bronzePrice);
+            console.log(silverPrice);
+            console.log(goldPrice);
         })
         .catch((err) => {
             console.log(err);
@@ -101,14 +114,14 @@ const TourDetail = () => {
                                 <div className="tour-details-tab1">
                                     <div className="tour-details-package-price">
                                         <p>Bronze <span><img src="/asset/tour-details/bronze-medal.png" alt="" /></span></p>
-                                        <p>Rs. 50,000</p>
+                                        <p>{`Rs. ${bronzePrice}`}</p>
                                     </div>
                                     <div className="tour-details-tabs-description">
                                         <p><span><img src="/asset/tour-details/photography.png" alt="" /></span> {tour.bronzePhotographyDesc} </p>
                                         <p><span><img src="/asset/tour-details/hotel.png" alt="" /></span> {tour.bronzeHotelDesc}</p>
                                         <p><span><img src="/asset/tour-details/meal.png" alt="" /></span> {tour.bronzeMealDesc}</p>
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.bronzeCarDesc}</p>
-                                        <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.bronzeAdditionalInfo}</p>
+                                        <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.bronzeAddInfo}</p>
 
                                         <a href="/BuyerLogin"><button className="tour-continue-btn" >Continue as Buyer</button></a>
                                     </div>
@@ -118,14 +131,14 @@ const TourDetail = () => {
                             <div className="tour-details-tab1">
                                     <div className="tour-details-package-price">
                                         <p>Silver <span><img src="/asset/tour-details/silver-medal.png" alt="" /></span></p>
-                                        <p>Rs. 100,000</p>
+                                        <p>{`Rs. ${silverPrice}`}</p>
                                     </div>
                                     <div className="tour-details-tabs-description">
                                         <p><span><img src="/asset/tour-details/photography.png" alt="" /></span> {tour.silverPhotographyDesc} </p>
                                         <p><span><img src="/asset/tour-details/hotel.png" alt="" /></span> {tour.silverHotelDesc} </p>
                                         <p><span><img src="/asset/tour-details/meal.png" alt="" /></span> {tour.silverMealDesc}</p>
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.silverCarDesc}</p>
-                                        <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.silverAdditionalInfo}</p>
+                                        <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.silverAddInfo}</p>
 
                                         <a href="/BuyerLogin"><button className="tour-continue-btn" >Continue as Buyer</button></a>
                                     </div>
@@ -135,14 +148,14 @@ const TourDetail = () => {
                             <div className="tour-details-tab1">
                                     <div className="tour-details-package-price">
                                         <p>Gold <span><img src="/asset/tour-details/gold-medal.png" alt="" /></span></p>
-                                        <p>Rs. 150,000</p>
+                                        <p>{`Rs. ${goldPrice}`}</p>
                                     </div>
                                     <div className="tour-details-tabs-description">
                                         <p><span><img src="/asset/tour-details/photography.png" alt="" /></span> {tour.goldPhotographyDesc} </p>
                                         <p><span><img src="/asset/tour-details/hotel.png" alt="" /></span> {tour.goldHotelDesc}</p>
                                         <p><span><img src="/asset/tour-details/meal.png" alt="" /></span> {tour.goldMealDesc}</p>
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.goldCarDesc}</p>
-                                        <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.goldAdditionalInfo}</p>
+                                        <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.goldAddInfo}</p>
 
                                         <a href="/BuyerLogin"><button className="tour-continue-btn" >Continue as Buyer</button></a>
                                     </div>

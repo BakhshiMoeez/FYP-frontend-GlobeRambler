@@ -30,33 +30,33 @@ export default function PostTour() {
   const [basePrice, setBasePrice] = useState("");
 
   const [bronzePhotographyDesc, setBronzePhotographyDesc] = useState("N/A");
-  const [bronzePhotographyPrice, setBronzePhotographyPrice] = useState("N/A");
+  const [bronzePhotographyPrice, setBronzePhotographyPrice] = useState("0");
   const [bronzeHotelDesc, setBronzeHotelDesc] = useState("N/A");
-  const [bronzeHotelPrice, setBronzeHotelPrice] = useState("N/A");
+  const [bronzeHotelPrice, setBronzeHotelPrice] = useState("0");
   const [bronzeMealDesc, setBronzeMealDesc] = useState("N/A");
-  const [bronzeMealPrice, setBronzeMealPrice] = useState("N/A");
+  const [bronzeMealPrice, setBronzeMealPrice] = useState("0");
   const [bronzeCarDesc, setBronzeCarDesc] = useState("N/A");
-  const [bronzeCarPrice, setBronzeCarPrice] = useState("N/A");
+  const [bronzeCarPrice, setBronzeCarPrice] = useState("0");
   const [bronzeAdditionalInfo, setBronzeAdditionalInfo] = useState("N/A");
 
   const [silverPhotographyDesc, setSilverPhotographyDesc] = useState("N/A");
-  const [silverPhotographyPrice, setSilverPhotographyPrice] = useState("N/A");
+  const [silverPhotographyPrice, setSilverPhotographyPrice] = useState("0");
   const [silverHotelDesc, setSilverHotelDesc] = useState("N/A");
-  const [silverHotelPrice, setSilverHotelPrice] = useState("N/A");
+  const [silverHotelPrice, setSilverHotelPrice] = useState("0");
   const [silverMealDesc, setSilverMealDesc] = useState("N/A");
-  const [silverMealPrice, setSilverMealPrice] = useState("N/A");
+  const [silverMealPrice, setSilverMealPrice] = useState("0");
   const [silverCarDesc, setSilverCarDesc] = useState("N/A");
-  const [silverCarPrice, setSilverCarPrice] = useState("N/A");
+  const [silverCarPrice, setSilverCarPrice] = useState("0");
   const [silverAdditionalInfo, setSilverAdditionalInfo] = useState("N/A");
 
   const [goldPhotographyDesc, setGoldPhotographyDesc] = useState("N/A");
-  const [goldPhotographyPrice, setGoldPhotographyPrice] = useState("N/A");
+  const [goldPhotographyPrice, setGoldPhotographyPrice] = useState("0");
   const [goldHotelDesc, setGoldHotelDesc] = useState("N/A");
-  const [goldHotelPrice, setGoldHotelPrice] = useState("N/A");
+  const [goldHotelPrice, setGoldHotelPrice] = useState("0");
   const [goldMealDesc, setGoldMealDesc] = useState("N/A");
-  const [goldMealPrice, setGoldMealPrice] = useState("N/A");
+  const [goldMealPrice, setGoldMealPrice] = useState("0");
   const [goldCarDesc, setGoldCarDesc] = useState("N/A");
-  const [goldCarPrice, setGoldCarPrice] = useState("N/A");
+  const [goldCarPrice, setGoldCarPrice] = useState("0");
   const [goldAdditionalInfo, setGoldAdditionalInfo] = useState("N/A");
 
   const sellerEamil = Cookie.get("sellerEmail");

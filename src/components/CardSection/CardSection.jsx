@@ -99,7 +99,7 @@ export default function CardSection() {
                                     avatar={<Avatar src={item.sellerProfilePic} />}
                                     title={<a href={`/tourDetail/${item._id}`}  style={{ color: 'black' }} >{item.title}</a>}
 
-                                    description={`${item.description}  ${'Rs.'}${item.basePrice}`}
+                                    description={`${'Rs.'}${item.basePrice}`}
                                 />
                             </Card>
                         ))
