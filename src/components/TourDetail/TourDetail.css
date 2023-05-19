@@ -7,20 +7,44 @@
 }
 
 .tour-details-container {
-    max-width: 1400px;
-    padding: 0 20px;
+    /* background-image: url('https://wallpapercave.com/uwp/uwp3520264.jpeg'); 
+    backdrop-filter: blur(18px); */
+    background-size: cover;
+    max-width: 100%;
+    padding: 60px;
     /* margin: 120px auto; */
 }
 
-.tour-details-tabs .nav-tabs .nav-link {
+.tour-details-inside-container{
+    
+    border-radius: 20px;
+    padding: 30px;
+    padding: 40px;
+    box-shadow: 0px 0px 9px 11px rgba(0,0,0,0.1);
+}
+
+.tour-details-tabs .nav-tabs .nav-link{
     color: black;
     display: block;
     background: #FAFAFA;
     border: 1px solid #D9DADC;
-    padding: 1rem 32.1px;
+    /* padding: 1rem 1rem; */
     border-top-left-radius: unset;
     border-top-right-radius: unset;
 }
+
+.nav-link{
+    padding: 13.5px !important;
+}
+/* {
+    color: black;
+    display: block;
+    background: #FAFAFA;
+    border: 1px solid #D9DADC;
+    padding: 1rem 1rem;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+} */
 
 .tour-details-tabs .nav-tabs .nav-link.active {
     color: #F1592A;
@@ -30,17 +54,18 @@
 
 .tour-details-container h1 {
     font-size: 42px;
-    font-family: none;
+    /* font-family: none; */
     margin-bottom: 40px;
+    font-weight: bolder;
 }
 
 .tour-details-container .tour-details-tabs {
-    padding-left: 60px;
+    /* padding-left: 60px; */
 }
 
 .tour-details-container .tour-details-tabs-div {
     border: 1px solid #D9DADC;
-    max-width: 393px;
+    /* max-width: 393px; */
 }
 
 .tour-details-container .tab-content {
@@ -92,14 +117,12 @@ h3.tour-details-category {
         padding-left: 20px;
     }
 
-    .tour-details-tabs .nav-tabs .nav-link {
+    /* .tour-details-tabs .nav-tabs .nav-link {
         padding: 1rem 32.1px;
-    }
+    } */
 }
 
-@media (max-width: 992px) {
-    .tour-details-container .tour-details-tabs {
-        padding-left: 0;
-        margin-top: 40px;
-    }
-}
+/* 
+
+
+*/

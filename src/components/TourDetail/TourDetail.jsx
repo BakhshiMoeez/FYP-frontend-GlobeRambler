@@ -69,7 +69,7 @@ const TourDetail = () => {
     return (
         <>
     <div className="tour-details-container">
-        <div className="container-fluid">
+        <div className="tour-details-inside-container">
             <h1>Tour Details</h1>
             <div className="row">
                 <div className="col-12 col-lg-8 tour-details-images">
@@ -88,11 +88,11 @@ const TourDetail = () => {
                     </div>
                     <div className="tour-details-info">
                         <h2 className="tour-details-name">{tour.title}</h2>
-                        <h3 className="tour-details-category">Historic</h3>
+                        {/* <h3 className="tour-details-category">Historic</h3> */}
                         <p className="tour-details-description">
                             {tour.description}
                         </p>
-                        <h5 className="tour-details-price">{tour.basePrice}</h5>
+                        {/* <h5 className="tour-details-price">{tour.basePrice}</h5> */}
                     </div>
                 </div>
                 <div className="col-12 col-lg-4 tour-details-tabs">
