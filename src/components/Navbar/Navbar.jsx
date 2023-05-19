@@ -17,10 +17,10 @@ export default function Navbar() {
             </div>
             <div className="navbar-elements">
                 <ul className='navbar-ul'>
-                    <li className='navbar-li'>Home</li>
+                    {/* <li className='navbar-li'>Home</li> */}
                     <li className='navbar-li'><NavLink className="navlink" to='/buyingDashboard'>Tour</NavLink></li>
                     <li className='navbar-li'><NavLink className="navlink" to='/aboutus'>About us</NavLink></li>
-                    <li className='navbar-li'>Contact us</li>
+                    <li className='navbar-li'><NavLink className="navlink" to='/contactus'>Contact us</NavLink></li>
                     <li className='navbar-li'><NavLink className="navlink" to={profilePath}>Profile</NavLink></li>
                 </ul>
             </div>

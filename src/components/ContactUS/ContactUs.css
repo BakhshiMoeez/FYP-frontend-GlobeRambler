@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The css about banner + contents on banner */
+.contact-us-main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-us-banner-image{
+    width: 100%;
+    position: relative;
+}
+
+.contact-us-inside-container{
+    width: 80%;
+    position: absolute;
+    padding: 20px;
+    top: 0;
+}
+
+.contact-us-inside-container-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+}
+
+.contact-us-banner-text{
+    color: white;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.contact-us-banner-text-lower
+{
+    margin-top: -60px;
+    color: white;
+}
+
+.contact-us-form-input
+{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 12px 15px;
+    width: 400px;
+}
+
+.contact-us-search-button
+{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 12px 15px;
+    background-color: var(--bg-orange);
+    width: 120px;
+    color: var(--bg-white);
+    margin-left: 10px;
+    cursor: pointer;
+    /* width: 300px; */
+}
+
+.contact-us-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: 3px solid red; */
+    height: 20rem;
+}
+
+.contact-us-info-container-num{
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 3rem; */
+    /* width: 15rem; */
+    align-items: center;
+    /* border: 2px solid red; */
+
+}
+
+.contact-us-info-container-location{
+    display: flex;
+    /* margin-left: 3rem; */
+    /* margin-right: 3rem; */
+    flex-direction: column;
+    align-items:center;
+    /* border: 2px solid red; */
+}
+
+.contact-us-info-container-email{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.contact-us-form-container{
+    position: relative;
+
+}
+.contact-us-form-container-image{
+    width: 100%;
+    position: relative;
+    height: 40rem;
+}
+.contact-us-form-get-in-touch{
+    width: 35%;
+    position: absolute;
+    top: 5rem;
+    left: 45rem;
+    background-color: rgb(123, 93, 93);
+
+}
+.contact-us-footer{
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+}
+/* ================================ */
+

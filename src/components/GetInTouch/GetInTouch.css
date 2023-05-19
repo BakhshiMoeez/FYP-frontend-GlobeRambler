@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.get-in-touch-form-main-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* width: 30%; */
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.get-in-touch-form-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.get-in-touch-input-field{
+    border-radius: 10px;
+    border: 1px solid #bdb5b3;
+    padding: 5px;
+    margin: 5px;
+}
