@@ -5,7 +5,16 @@ import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import CardSection from "../../CardSection/CardSection";
 import axios from 'axios';
+import $ from 'jquery';
+
 import { useNavigate } from 'react-router-dom';
+
+$(document).ready(function() {
+  $(".notification-drop .item").off().on('click', function() {
+    $(this).find('ul').toggle();
+  });
+ });
+
 
 export default function SellerProfile() {
   const sellerEmail = Cookies.get('sellerEmail');
@@ -73,8 +82,7 @@ export default function SellerProfile() {
   if(updateProfile) { return <UpdateSellerProfile 
     setUpdatedProfile={setUpdateProfile} 
     sellerInfo = {sellerInfo}
-  />} 
-
+  />}
   return (
     <div className="Aboutus-main-container profile-info">
         {/*banner image*/}
@@ -102,9 +110,19 @@ export default function SellerProfile() {
                   <a className="profile-info-email" href="mailto:ans@gmail.com"><span><img src="/asset/profile-pages/email-icon.png" alt="" /></span>{sellerInfo.email}</a>
                   <a className="profile-info-phone" href="tel:+923034098015"><span><img src="/asset/profile-pages/phone-icon.png" alt="" /></span>{sellerInfo.phone}</a>
                   <button className='btn btn-primary' onClick={navigateToPostTour}>Post Tour</button>
-                  <button className='btn btn-primary' onClick={() => {setUpdateProfile(true)}}>Update Profile</button>
+                  <button className='btn btn-primary two' onClick={() => {setUpdateProfile(true)}}>Update Profile</button>
                 </div>
               </div>
+              <ul className="notification-drop">
+                <li className="item">
+                  <i className="fas fa-bell notification-bell" aria-hidden="true"></i> <span className="btn__badge pulse-button ">4</span>     
+                  <ul>
+                    <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
+                    <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
+                    <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ import BuyerProfile from "./components/ProfilePages/Buyer/BuyerProfile";
 import SellerProfile from "./components/ProfilePages/Seller/SellerProfile";
 import TourDetail from "./components/TourDetail/TourDetail";
 import ContactUs from "./components/ContactUS/ContactUs";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -30,7 +31,8 @@ function App() {
         <Route path="/buyerProfile" element={<BuyerProfile />} />
         <Route path="/sellerProfile" element={<SellerProfile />} />
         <Route path="/tourDetail/:id" element={<TourDetail />} />
-        <Route path="/contactus" element={<ContactUs />} />S
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/adminPanel" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
   );

@@ -67,8 +67,9 @@ h6.profile-info-location {
 
 .profile-info-email-phone-div {
     display: flex;
-    max-width: 500px;
-    justify-content: space-between;
+    max-width: 650px;
+    justify-content: flex-start;
+    align-items: center;
     padding-top: 50px;
 }
 .profile-info-email-phone-div span {
@@ -79,4 +80,22 @@ h6.profile-info-location {
 .profile-info-phone {
     font-size: 16px;
     color: #8C959F;
+}
+
+.profile-info-phone {
+    margin: 0 20px;
+}
+
+.profile-info-email-phone-div .btn.btn-primary.two {
+    margin-left: 20px;
+}
+
+.profile-info-email-phone-div button {
+    background-color: #e74c3c;
+    outline: none;
+    border: none;
+}
+
+.profile-info-email-phone-div button:hover  {
+    background-color: #000;
 }

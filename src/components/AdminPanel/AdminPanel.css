@@ -1,0 +1,50 @@
+/* Webpixels CSS */
+/* Utility and component-centric Design System based on Bootstrap for fast, responsive UI development */
+/* URL: https://github.com/webpixels/css */
+
+@import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+
+/* Bootstrap Icons */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+.bg-surface-secondary h1 {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.contact-form-wrapper {
+    margin: 50px auto;
+    width: 600px;
+}
+.contact-form-wrapper .title {
+    margin-bottom: 30px;
+}
+.contact-form-wrapper h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.contact-form-wrapper p {
+    font-size: 14px;
+    color: #777;
+}
+.contact-form-wrapper input {
+    border-radius: 0;
+    height: 50px;
+    font-size: 12px;
+    color: #999;
+}
+.contact-form-wrapper textarea {
+    border-radius: 0;
+    font-size: 12px;
+    color: #999;
+}
+.contact-form-wrapper .submit-button {
+    background: #e74c3c;
+    padding: 0 50px;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
