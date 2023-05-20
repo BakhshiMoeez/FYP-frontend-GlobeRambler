@@ -1,14 +1,36 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import AdminLogin from '../AdminLogin/AdminLogin';
+import { useNavigate } from 'react-router-dom';
 import './AdminPanel.css';
 
 const AdminPanel = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const isAdminLogin = Cookies.get('adminLogin');
+        if(isAdminLogin === 'false')
+        {
+            navigate('/adminLogin');
+        }
+    });
+    
+    const handlogout = () => {
+        Cookies.set('adminLogin', 'false');
+        navigate('/adminLogin');
+    };
     return (
         <>
         {/* Main */}
         <main className="py-6 bg-surface-secondary">
-            <h1>Admin Panel</h1>
+            <div className='admin-logo-logout-header'>
+                <img src="/asset/logo/logo.png" alt="logo" />
+                <button className='btn btn-warning' onClick={handlogout}>LogOut</button>
+            </div>
+
+            <h1 style={{fontWeight: 'bolder'}}>Admin Panel</h1>
             <div className="container-fluid">
                 {/* <!-- Card stats --> */}
                 <div className="row g-6 mb-6">
@@ -241,6 +263,8 @@ const AdminPanel = () => {
                     </form>
                     
                 </div>
+
+                
         </main>
 
         </>

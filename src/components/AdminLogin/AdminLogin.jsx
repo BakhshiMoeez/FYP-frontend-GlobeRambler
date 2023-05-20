@@ -1,14 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AdminLogin.css';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
+
 
 export default function AdminLogin() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
+
+    const   handleSubmit = async (e) => {
+        e.preventDefault();
+        if(username === 'admin' && password === 'admin')
+        {
+            Cookies.set('adminLogin', 'true');
+            navigate('/adminPanel');
+        }
+        else
+        {
+            toast.error('Wrong Username or Password', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                });
+        }
+    };
   return (
     <div className="container-fluid main-page login-signup admin-login">
         <div className="row main-page">
@@ -28,14 +51,14 @@ export default function AdminLogin() {
                 <div className="login-signup-form-signing">
                     <p className="login-signup-info-text">Admin Login</p>
                     
-                    <form className='login-signup-form'>
+                    <form className='login-signup-form' onSubmit={handleSubmit}>
                         <div className="form-field login-signup">
                             <label htmlFor="email">Username or Email Address</label>
-                            <input type="email" required="required" id="email" name="email" />
+                            <input type="text" required="required" id="email" name="email" onChange={(e) => {setUsername(e.target.value)}} />
                         </div>
                         <div className="form-field login-signup">
                             <label htmlFor="password">Password</label>
-                            <input type="password" required="required" id="password" name="password" />
+                            <input type="password" required="required" id="password" name="password" onChange={(e) => {setPassword(e.target.value)}} />
                         </div>
                         <button className="login-signup-continue-btn submit" type="submit">Sign In</button>
                     </form>

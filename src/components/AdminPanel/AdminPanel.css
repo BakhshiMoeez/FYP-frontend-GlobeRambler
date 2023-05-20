@@ -7,6 +7,13 @@
 /* Bootstrap Icons */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
 
+.admin-logo-logout-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 20px 0; */
+}
+
 .bg-surface-secondary h1 {
     text-align: center;
     padding: 40px 0;
