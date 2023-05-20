@@ -33,6 +33,25 @@
     border-top-right-radius: unset;
 }
 
+.tour-details-info-seller-info{
+    display: flex;
+    align-items: center;
+    background: rgba(241, 89, 42, 0.3);
+    background-color: ;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tour-details-info-seller-info-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    opacity: 1;
+}
+
 .nav-link{
     padding: 13.5px !important;
 }

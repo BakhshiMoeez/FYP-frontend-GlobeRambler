@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Carousel } from 'antd';
+import { Carousel, Tour } from 'antd';
 import './TourDetail.css';
 
 const TourDetail = () => {
     const { id } = useParams();
-    const TourDetail={
+    const TourDetail = {
       title: "N/A",
       desc: "N/A",
       coverImage: "N/A",
       basePrice: "0",
-      sellerEmail: "N/A",
+      email: "N/A",
       sellerProfilePic: "N/A",
       bronzePhotographyDesc: "N/A",
       bronzePhotographyPrice: "0",
@@ -42,28 +42,59 @@ const TourDetail = () => {
       goldAddInfo: "N/A"
     };
     const [tour, setTour] = useState(TourDetail);
-    
     const [bronzePrice, setBronzePrice] = useState(0);
     const [silverPrice, setSilverPrice] = useState(0);
     const [goldPrice, setGoldPrice] = useState(0);
 
+    const [firstName, setFirstName] = useState("none");
+    const [lastName, setLastName] = useState("none");
+
     useEffect(() => {
-        axios.get(`http://localhost:3500/api/tour/${id}`)
-        .then((res) => {
-            setTour(res.data);
+        
+        const fetchData = async () => {
+            try {
+              const tourResponse = await axios.get(`${process.env.REACT_APP_API_URL}/api/tour/${id}`);
+              const tourData = tourResponse.data;
+              setTour(tourData);
+              setBronzePrice(parseInt(tourData.basePrice, 10) + parseInt(tourData.bronzePhotographyPrice, 10) + parseInt(tourData.bronzeHotelPrice, 10) + parseInt(tourData.bronzeMealPrice, 10) + parseInt(tourData.bronzeCarPrice, 10));
+              setSilverPrice(parseInt(tourData.basePrice, 10) + parseInt(tourData.silverPhotographyPrice, 10) + parseInt(tourData.silverHotelPrice, 10) + parseInt(tourData.silverMealPrice, 10) + parseInt(tourData.silverCarPrice, 10));
+              setGoldPrice(parseInt(tourData.basePrice, 10) + parseInt(tourData.goldPhotographyPrice, 10) + parseInt(tourData.goldHotelPrice, 10) + parseInt(tourData.goldMealPrice, 10) + parseInt(tourData.goldCarPrice, 10));
             
-            setBronzePrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.bronzePhotographyPrice, 10) + parseInt(res.data.bronzeHotelPrice, 10) + parseInt(res.data.bronzeMealPrice, 10) + parseInt(res.data.bronzeCarPrice, 10));
-            setSilverPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.silverPhotographyPrice, 10) + parseInt(res.data.silverHotelPrice, 10) + parseInt(res.data.silverMealPrice, 10) + parseInt(res.data.silverCarPrice, 10));
-            setGoldPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.goldPhotographyPrice, 10) + parseInt(res.data.goldHotelPrice, 10) + parseInt(res.data.goldMealPrice, 10) + parseInt(res.data.goldCarPrice, 10));
-            
-            console.log(tour);
-            console.log(bronzePrice);
-            console.log(silverPrice);
-            console.log(goldPrice);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+              const email = tourData.email;
+              const sellerResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/seller/`, {email});
+              setFirstName(sellerResponse.data.firstName);
+              setLastName(sellerResponse.data.lastName);
+
+            } catch (err) {
+              console.log(err);
+            }
+          };
+          
+          fetchData();
+          
+        // const getTour = async () => {
+                
+        //     axios.get(`${process.env.REACT_APP_API_URL}/api/tour/${id}`)
+        //     .then((res) => {
+                
+        //     setTour(res.data);
+                
+        //         setBronzePrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.bronzePhotographyPrice, 10) + parseInt(res.data.bronzeHotelPrice, 10) + parseInt(res.data.bronzeMealPrice, 10) + parseInt(res.data.bronzeCarPrice, 10));
+        //         setSilverPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.silverPhotographyPrice, 10) + parseInt(res.data.silverHotelPrice, 10) + parseInt(res.data.silverMealPrice, 10) + parseInt(res.data.silverCarPrice, 10));
+        //         setGoldPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.goldPhotographyPrice, 10) + parseInt(res.data.goldHotelPrice, 10) + parseInt(res.data.goldMealPrice, 10) + parseInt(res.data.goldCarPrice, 10));
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
+
+        //     const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/seller/${tour.sellerEmail}`);
+        //     console.log(res.data);
+        //     setFirstName(res.data.firstName);
+        //     setLastName(res.data.lastName);
+        // }
+    
+        // getTour();
+
     }, []);
 
     return (
@@ -75,24 +106,22 @@ const TourDetail = () => {
                 <div className="col-12 col-lg-8 tour-details-images">
                     <div className="carousel-slider">
                         <Carousel autoplay>
-                            
                             <img src={tour.coverImage} alt="" />
-
-                            {/* <div>
-                                <img src="https://picsum.photos/id/456/1200/600" alt="" />
-                            </div>
-                            <div>
-                                <img src="https://picsum.photos/id/123/1200/600" alt="" />
-                            </div>                                                         */}
                         </Carousel>
                     </div>
                     <div className="tour-details-info">
+
+                        <div className="tour-details-info-seller-info">
+                            <img className='tour-details-info-seller-info-img' src={tour.sellerProfilePic} alt="profile pic" />
+                            <h5>{`${firstName} ${lastName}`}</h5>
+                        </div>
+
                         <h2 className="tour-details-name">{tour.title}</h2>
                         {/* <h3 className="tour-details-category">Historic</h3> */}
-                        <p className="tour-details-description">
+                        <p className="tour-details-description" style={{textAlign: 'justify'}}>
                             {tour.description}
                         </p>
-                        {/* <h5 className="tour-details-price">{tour.basePrice}</h5> */}
+
                     </div>
                 </div>
                 <div className="col-12 col-lg-4 tour-details-tabs">
