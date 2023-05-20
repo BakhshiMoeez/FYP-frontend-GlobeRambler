@@ -1,0 +1,8 @@
+.main-page.login-signup.admin-login button.login-signup-continue-btn.submit {
+  background: #f1592a;
+}
+
+.admin-login p.login-signup-info-text {
+  font-size: 40px;
+  color: #000;
+}
