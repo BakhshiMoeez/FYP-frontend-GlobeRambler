@@ -99,3 +99,9 @@ h6.profile-info-location {
 .profile-info-email-phone-div button:hover  {
     background-color: #000;
 }
+
+.profile-info.buyer ul.notification-drop {
+    position: absolute;
+    right: 40px;
+    bottom: 250px;
+}

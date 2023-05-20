@@ -129,7 +129,7 @@ export default function PostTour() {
   };
 
 // A $( document ).ready() block.
-$( document ).ready(function() {
+$( document ).ready(function() {  
   //FOR BRONZE
   $("#bronze-photography").change(function() {
     if(this.checked) {
@@ -296,502 +296,512 @@ $( document ).ready(function() {
               </div>
 
               <div className="post-tour-categories">
-                <Tabs>
-                  <Tabs.TabPane tab="Bronze" key="bronze">
-                    <div className="post-tour-categories-bronze">
-                      <div className="checkbox-post-tour bronze-photography">
-                        <input type="checkbox" id="bronze-photography" name="bronze-photography" value="bronze-photography"/>
-                        <label htmlFor="Bronze Photography"> <b>Bronze Photography</b> </label><br/>
-                      </div>              
-                      <div className="post-tour-categories-bronze-photography">
-                        <fieldset>
-                          <legend>Bronze Photography</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Bronze Photography Description"
-                              name="bronzePhotographyDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the bronze Photography service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setBronzePhotographyDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Bronze Photography Price"
-                              name="bronzePhotographyPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the bronze Photography service"
-                            onChange={(e) => setBronzePhotographyPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour bronze-hotel">
-                        <input type="checkbox" id="bronze-hotel" name="bronze-hotel" value="bronze-hotel"/>
-                        <label htmlFor="Bronze Hotel"> <b>Bronze Hotel</b> </label><br/>
-                      </div> 
-                      <div className="post-tour-categories-bronze-hotel">
-                        <fieldset>
-                          <legend>Bronze Hotel</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Bronze Hotel Description"
-                              name="bronzeHotelDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the bronze hotel service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setBronzeHotelDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Bronze Hotel Price"
-                              name="bronzeHotelPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the bronze hotel service"
-                            onChange={(e) => setBronzeHotelPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour bronze-meal">
-                        <input type="checkbox" id="bronze-meal" name="bronze-meal" value="bronze-meal"/>
-                        <label htmlFor="Bronze Meal"> <b>Bronze Meal</b> </label><br/>
-                      </div> 
-                      <div className="post-tour-categories-bronze-meal">
-                        <fieldset>
-                          <legend>Bronze Meal</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Bronze Meal Description"
-                              name="bronzeMealDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the bronze meal service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setBronzeMealDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Bronze Meal Price"
-                              name="bronzeMealPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the bronze meal service"
-                            onChange={(e) => setBronzeMealPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour bronze-car">
-                        <input type="checkbox" id="bronze-car" name="bronze-car" value="bronze-car"/>
-                        <label htmlFor="Bronze car"> <b>Bronze Car</b> </label><br/>
-                      </div> 
-                      <div className="post-tour-categories-bronze-car">
-                        <fieldset>
-                          <legend>Bronze Car</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Bronze Car Description"
-                              name="bronzeCarDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the bronze car service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setBronzeCarDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Bronze Car Price"
-                              name="bronzeCarPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the bronze car service"
-                            onChange={(e) => setBronzeCarPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="post-tour-categories-bronze-aditionalInfo">
-                        <fieldset>
-                          <legend>Bronze Aditional Info</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Bronze Aditional Info"
-                              name="bronzeAditionalInfo"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the additional info of bronze package"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setBronzeAdditionalInfo(e.target.value)}
-                          ></Input>
-                        </fieldset>
-                      </div>
+                <ul className="nav nav-tabs" role="tablist">
+          <li className="nav-item">
+              <a className="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Bronze <span><img src="/asset/tour-details/bronze-medal.png" alt="" /></span></a>
+          </li>
+          <li className="nav-item">
+              <a className="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Silver <span><img src="/asset/tour-details/silver-medal.png" alt="" /></span></a>
+          </li>
+          <li className="nav-item">
+              <a className="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Gold <span><img src="/asset/tour-details/gold-medal.png" alt="" /></span></a>
+          </li>
+                </ul>
+                {/*Tabs Pan*/}
+                <div className="tab-content">
+                    <div className="tab-pane active" id="tabs-1" role="tabpanel">
+                        <div className="post-tour-categories-bronze">
+                          <div className="checkbox-post-tour bronze-photography">
+                            <input type="checkbox" id="bronze-photography" className="photography-service" name="bronze-photography" value="bronze-photography"/>
+                            <label htmlFor="Bronze Photography"> <b>Bronze Photography</b> </label><br/>
+                          </div>              
+                          <div className="post-tour-categories-bronze-photography">
+                            <fieldset>
+                              <legend>Bronze Photography</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Bronze Photography Description"
+                                  name="bronzePhotographyDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the bronze Photography service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setBronzePhotographyDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Bronze Photography Price"
+                                  name="bronzePhotographyPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the bronze Photography service"
+                                onChange={(e) => setBronzePhotographyPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour bronze-hotel">
+                            <input type="checkbox" id="bronze-hotel" className="hotel-service" name="bronze-hotel" value="bronze-hotel"/>
+                            <label htmlFor="Bronze Hotel"> <b>Bronze Hotel</b> </label><br/>
+                          </div> 
+                          <div className="post-tour-categories-bronze-hotel">
+                            <fieldset>
+                              <legend>Bronze Hotel</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Bronze Hotel Description"
+                                  name="bronzeHotelDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the bronze hotel service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setBronzeHotelDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Bronze Hotel Price"
+                                  name="bronzeHotelPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the bronze hotel service"
+                                onChange={(e) => setBronzeHotelPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour bronze-meal">
+                            <input type="checkbox" id="bronze-meal" name="bronze-meal" className="meal-service" value="bronze-meal"/>
+                            <label htmlFor="Bronze Meal"> <b>Bronze Meal</b> </label><br/>
+                          </div> 
+                          <div className="post-tour-categories-bronze-meal">
+                            <fieldset>
+                              <legend>Bronze Meal</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Bronze Meal Description"
+                                  name="bronzeMealDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the bronze meal service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setBronzeMealDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Bronze Meal Price"
+                                  name="bronzeMealPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the bronze meal service"
+                                onChange={(e) => setBronzeMealPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour bronze-car">
+                            <input type="checkbox" id="bronze-car" name="bronze-car" className="car-service" value="bronze-car"/>
+                            <label htmlFor="Bronze car"> <b>Bronze Car</b> </label><br/>
+                          </div> 
+                          <div className="post-tour-categories-bronze-car">
+                            <fieldset>
+                              <legend>Bronze Car</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Bronze Car Description"
+                                  name="bronzeCarDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the bronze car service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setBronzeCarDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Bronze Car Price"
+                                  name="bronzeCarPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the bronze car service"
+                                onChange={(e) => setBronzeCarPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="post-tour-categories-bronze-aditionalInfo">
+                            <fieldset>
+                              <legend>Bronze Aditional Info</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Bronze Aditional Info"
+                                  name="bronzeAditionalInfo"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the additional info of bronze package"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setBronzeAdditionalInfo(e.target.value)}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                        </div>                  
                     </div>
-                  </Tabs.TabPane>
-
-                  <Tabs.TabPane tab="Silver" key="silver">
-                    <div className="post-tour-categories-silver">
-                      <div className="checkbox-post-tour silver-photography">
-                        <input type="checkbox" id="silver-photography" name="Silver-photography" value="Silver-photography"/>
-                        <label htmlFor="Silver photography"> <b>Silver Photography</b> </label><br/>
-                      </div> 
-                      <div className="post-tour-categories-silver-photography">
-                        <fieldset>
-                          <legend>Photography</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Silver Photography Description"
-                              name="silverPhotographyDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the Silver Photography service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setSilverPhotographyDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Silver Photography Price"
-                              name="silverPhotographyPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the Silver Photography service"
-                            onChange={(e) => setSilverPhotographyPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour silver-hotel">
-                        <input type="checkbox" id="silver-hotel" name="Silver-hotel" value="Silver-hotel"/>
-                        <label htmlFor="Silver hotel"> <b>Silver Hotel</b> </label><br/>
-                      </div> 
-                      <div className="post-tour-categories-silver-hotel">
-                        <fieldset>
-                          <legend>Silver Hotel</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Silver Hotel Description"
-                              name="silverHotelDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the silver hotel service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setSilverHotelDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Silver Hotel Price"
-                              name="silverHotelPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the silver hotel service"
-                            onChange={(e) => setSilverHotelPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour silver-meal">
-                        <input type="checkbox" id="silver-meal" name="Silver-meal" value="Silver-meal"/>
-                        <label htmlFor="Silver meal"> <b>Silver Meal</b> </label><br/>
-                      </div> 
-                      <div className="post-tour-categories-silver-meal">
-                        <fieldset>
-                          <legend>Silver Meal</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Silver Meal Description"
-                              name="silverMealDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the silver meal service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setSilverMealDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Silver Meal Price"
-                              name="silverMealPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the silver meal service"
-                            onChange={(e) => setSilverMealPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour silver-car">
-                        <input type="checkbox" id="silver-car" name="Silver-car" value="Silver-car"/>
-                        <label htmlFor="Silver car"> <b>Silver Car</b> </label><br/>
-                      </div>
-                      <div className="post-tour-categories-silver-car">
-                        <fieldset>
-                          <legend>Silver Car</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Silver Car Description"
-                              name="silverCarDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the silver car service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setSilverCarDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Silver Car Price"
-                              name="silverCarPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the silver car service"
-                            onChange={(e) => setSilverCarPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="post-tour-categories-silver-aditionalInfo">
-                        <fieldset>
-                          <legend>Silver Aditional Info</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Silver Aditional Info"
-                              name="silverAditionalInfo"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the additional info of silver package"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setSilverAdditionalInfo(e.target.value)}
-                          ></Input>
-                        </fieldset>
-                      </div>
+                    <div className="tab-pane" id="tabs-2" role="tabpanel">
+                        <div className="post-tour-categories-silver">
+                          <div className="checkbox-post-tour silver-photography">
+                            <input type="checkbox" id="silver-photography" className="photography-service" name="Silver-photography" value="Silver-photography"/>
+                            <label htmlFor="Silver photography"> <b>Silver Photography</b> </label><br/>
+                          </div> 
+                          <div className="post-tour-categories-silver-photography">
+                            <fieldset>
+                              <legend>Photography</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Silver Photography Description"
+                                  name="silverPhotographyDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the Silver Photography service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setSilverPhotographyDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Silver Photography Price"
+                                  name="silverPhotographyPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the Silver Photography service"
+                                onChange={(e) => setSilverPhotographyPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour silver-hotel">
+                            <input type="checkbox" id="silver-hotel" className="hotel-service" name="Silver-hotel" value="Silver-hotel"/>
+                            <label htmlFor="Silver hotel"> <b>Silver Hotel</b> </label><br/>
+                          </div> 
+                          <div className="post-tour-categories-silver-hotel">
+                            <fieldset>
+                              <legend>Silver Hotel</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Silver Hotel Description"
+                                  name="silverHotelDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the silver hotel service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setSilverHotelDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Silver Hotel Price"
+                                  name="silverHotelPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the silver hotel service"
+                                onChange={(e) => setSilverHotelPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour silver-meal">
+                            <input type="checkbox" id="silver-meal" className="meal-service" name="Silver-meal" value="Silver-meal"/>
+                            <label htmlFor="Silver meal"> <b>Silver Meal</b> </label><br/>
+                          </div> 
+                          <div className="post-tour-categories-silver-meal">
+                            <fieldset>
+                              <legend>Silver Meal</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Silver Meal Description"
+                                  name="silverMealDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the silver meal service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setSilverMealDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Silver Meal Price"
+                                  name="silverMealPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the silver meal service"
+                                onChange={(e) => setSilverMealPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour silver-car">
+                            <input type="checkbox" id="silver-car" className="car-service" name="Silver-car" value="Silver-car"/>
+                            <label htmlFor="Silver car"> <b>Silver Car</b> </label><br/>
+                          </div>
+                          <div className="post-tour-categories-silver-car">
+                            <fieldset>
+                              <legend>Silver Car</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Silver Car Description"
+                                  name="silverCarDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the silver car service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setSilverCarDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Silver Car Price"
+                                  name="silverCarPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the silver car service"
+                                onChange={(e) => setSilverCarPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="post-tour-categories-silver-aditionalInfo">
+                            <fieldset>
+                              <legend>Silver Aditional Info</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Silver Aditional Info"
+                                  name="silverAditionalInfo"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the additional info of silver package"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setSilverAdditionalInfo(e.target.value)}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                        </div>
                     </div>
-                  </Tabs.TabPane>
-
-                  <Tabs.TabPane tab="Gold" key="gold">
-                    <div className="post-tour-categories-gold">
-                      <div className="checkbox-post-tour gold-photography">
-                        <input type="checkbox" id="gold-photography" name="gold-photography" value="gold-photography"/>
-                        <label htmlFor="gold photography"> <b>Gold Photography</b> </label><br/>
-                      </div>
-                      <div className="post-tour-categories-gold-photography">
-                        <fieldset>
-                          <legend>Gold Photography</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Gold Photography Description"
-                              name="goldPhotographyDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the Gold Photography service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setGoldPhotographyDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Gold Photography Price"
-                              name="goldPhotographyPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the Gold Photography service"
-                            onChange={(e) => setGoldPhotographyPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour gold-hotel">
-                        <input type="checkbox" id="gold-hotel" name="gold-hotel" value="gold-hotel"/>
-                        <label htmlFor="gold hotel"> <b>Gold Hotel</b> </label><br/>
-                      </div>
-                      <div className="post-tour-categories-gold-hotel">
-                        <fieldset>
-                          <legend>Gold Hotel</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Gold Hotel Description"
-                              name="goldHotelDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the gold hotel service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setGoldHotelDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Gold Hotel Price"
-                              name="goldHotelPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the gold hotel service"
-                            onChange={(e) => setGoldHotelPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour gold-meal">
-                        <input type="checkbox" id="gold-meal" name="gold-meal" value="gold-meal"/>
-                        <label htmlFor="gold meal"> <b>Gold Meal</b> </label><br/>
-                      </div>
-                      <div className="post-tour-categories-gold-meal">
-                        <fieldset>
-                          <legend>Gold Meal</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Gold Meal Description"
-                              name="goldMealDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the gold meal service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setGoldMealDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Gold Meal Price"
-                              name="goldMealPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the gold meal service"
-                            onChange={(e) => setGoldMealPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="checkbox-post-tour gold-car">
-                        <input type="checkbox" id="gold-car" name="gold-car" value="gold-car"/>
-                        <label htmlFor="gold car"> <b>Gold Car</b> </label><br/>
-                      </div>
-                      <div className="post-tour-categories-gold-car">
-                        <fieldset>
-                          <legend>Gold Car</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Gold Car Description"
-                              name="goldCarDesc"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the description of the gold car service"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setGoldCarDesc(e.target.value)}
-                          ></Input>
-                          <b>
-                            <Form.Item
-                              label="Gold Car Price"
-                              name="goldCarPrice"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Please provide the charges of the gold car service"
-                            onChange={(e) => setGoldCarPrice(e.target.value)}
-                            type="text"
-                            style={{margin: "0" }}
-                          ></Input>
-                        </fieldset>
-                      </div>
-                      <div className="post-tour-categories-gold-aditionalInfo">
-                        <fieldset>
-                          <legend>Gold Aditional Info</legend>
-                          <b>
-                            {" "}
-                            <Form.Item
-                              label="Gold Aditional Info"
-                              name="goldAditionalInfo"
-                              style={{ margin: "0" }}
-                            ></Form.Item>
-                          </b>
-                          <Input
-                            placeholder="Enter the additional info of gold package"
-                            style={{ height:"4rem", padding: "1rem" }}
-                            onChange={(e) => setGoldAdditionalInfo(e.target.value)}
-                          ></Input>
-                        </fieldset>
-                      </div>
+                    <div className="tab-pane" id="tabs-3" role="tabpanel">
+                        <div className="post-tour-categories-gold">
+                          <div className="checkbox-post-tour gold-photography">
+                            <input type="checkbox" id="gold-photography" className="photography-service" name="gold-photography" value="gold-photography"/>
+                            <label htmlFor="gold photography"> <b>Gold Photography</b> </label><br/>
+                          </div>
+                          <div className="post-tour-categories-gold-photography">
+                            <fieldset>
+                              <legend>Gold Photography</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Gold Photography Description"
+                                  name="goldPhotographyDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the Gold Photography service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setGoldPhotographyDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Gold Photography Price"
+                                  name="goldPhotographyPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the Gold Photography service"
+                                onChange={(e) => setGoldPhotographyPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour gold-hotel">
+                            <input type="checkbox" id="gold-hotel" className="hotel-service" name="gold-hotel" value="gold-hotel"/>
+                            <label htmlFor="gold hotel"> <b>Gold Hotel</b> </label><br/>
+                          </div>
+                          <div className="post-tour-categories-gold-hotel">
+                            <fieldset>
+                              <legend>Gold Hotel</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Gold Hotel Description"
+                                  name="goldHotelDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the gold hotel service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setGoldHotelDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Gold Hotel Price"
+                                  name="goldHotelPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the gold hotel service"
+                                onChange={(e) => setGoldHotelPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour gold-meal">
+                            <input type="checkbox" id="gold-meal" className="meal-service" name="gold-meal" value="gold-meal"/>
+                            <label htmlFor="gold meal"> <b>Gold Meal</b> </label><br/>
+                          </div>
+                          <div className="post-tour-categories-gold-meal">
+                            <fieldset>
+                              <legend>Gold Meal</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Gold Meal Description"
+                                  name="goldMealDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the gold meal service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setGoldMealDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Gold Meal Price"
+                                  name="goldMealPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the gold meal service"
+                                onChange={(e) => setGoldMealPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="checkbox-post-tour gold-car">
+                            <input type="checkbox" id="gold-car" className="car-service" name="gold-car" value="gold-car"/>
+                            <label htmlFor="gold car"> <b>Gold Car</b> </label><br/>
+                          </div>
+                          <div className="post-tour-categories-gold-car">
+                            <fieldset>
+                              <legend>Gold Car</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Gold Car Description"
+                                  name="goldCarDesc"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the description of the gold car service"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setGoldCarDesc(e.target.value)}
+                              ></Input>
+                              <b>
+                                <Form.Item
+                                  label="Gold Car Price"
+                                  name="goldCarPrice"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Please provide the charges of the gold car service"
+                                onChange={(e) => setGoldCarPrice(e.target.value)}
+                                type="text"
+                                style={{margin: "0" }}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                          <div className="post-tour-categories-gold-aditionalInfo">
+                            <fieldset>
+                              <legend>Gold Aditional Info</legend>
+                              <b>
+                                {" "}
+                                <Form.Item
+                                  label="Gold Aditional Info"
+                                  name="goldAditionalInfo"
+                                  style={{ margin: "0" }}
+                                ></Form.Item>
+                              </b>
+                              <Input
+                                placeholder="Enter the additional info of gold package"
+                                style={{ height:"4rem", padding: "1rem" }}
+                                onChange={(e) => setGoldAdditionalInfo(e.target.value)}
+                              ></Input>
+                            </fieldset>
+                          </div>
+                        </div>
                     </div>
-                  </Tabs.TabPane>
-                </Tabs>
+                </div>
               </div>
 
-              
+              <button className="btn btn-primary submit" onClick={handlePublish}>Submit</button>
             </Form>
           </div>
-          <button className="btn btn-primary" onClick={handlePublish}>Submit</button>
+          
         </div>
         <Footer />
       </div>

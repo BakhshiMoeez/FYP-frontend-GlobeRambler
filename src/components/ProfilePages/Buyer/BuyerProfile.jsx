@@ -67,7 +67,7 @@ export default function BuyerProfile() {
   return (
 
     <>
-      <div className="Aboutus-main-container profile-info">
+      <div className="Aboutus-main-container profile-info buyer">
         {/*banner image*/}
         <img className="Aboutus-banner-image" src="/asset/profile-pages/buyer-bg.png" alt="banner" />
         {/*container to manage the width like container in bootstrap*/}
@@ -92,6 +92,16 @@ export default function BuyerProfile() {
                   <a className="profile-info-phone" href="tel:+923034098015"><span><img src="/asset/profile-pages/phone-icon.png" alt="" /></span>{buyerInfo.phone}</a>
                   <button className='btn btn-primary' onClick={() => {setUpdateProfile(true)}}>Update Profile</button>
                 </div>
+                <ul className="notification-drop">
+                  <li className="item">
+                    <i className="fas fa-bell notification-bell" aria-hidden="true"></i> <span className="btn__badge pulse-button ">4</span>     
+                    <ul>
+                      <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
+                      <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
+                      <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

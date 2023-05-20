@@ -26,12 +26,6 @@ const AdminPanel = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-2 mb-0 text-sm">
-                                    <span className="badge badge-pill bg-soft-success text-success me-2">
-                                        <i className="bi bi-arrow-up me-1"></i>30%
-                                    </span>
-                                    <span className="text-nowrap text-xs text-muted">Since last month</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -48,12 +42,6 @@ const AdminPanel = () => {
                                             <i className="bi bi-minecart-loaded"></i>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="mt-2 mb-0 text-sm">
-                                    <span className="badge badge-pill bg-soft-danger text-danger me-2">
-                                        <i className="bi bi-minecart-loaded me-1"></i>-5%
-                                    </span>
-                                    <span className="text-nowrap text-xs text-muted">Since last month</span>
                                 </div>
                             </div>
                         </div>
@@ -72,12 +60,6 @@ const AdminPanel = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-2 mb-0 text-sm">
-                                    <span className="badge badge-pill bg-soft-success text-success me-2">
-                                        <i className="bi bi-arrow-up me-1"></i>10%
-                                    </span>
-                                    <span className="text-nowrap text-xs text-muted">Since last month</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -94,12 +76,6 @@ const AdminPanel = () => {
                                             <i className="bi bi-credit-card"></i>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="mt-2 mb-0 text-sm">
-                                    <span className="badge badge-pill bg-soft-success text-success me-2">
-                                        <i className="bi bi-arrow-up me-1"></i>13%
-                                    </span>
-                                    <span className="text-nowrap text-xs text-muted">Since last month</span>
                                 </div>
                             </div>
                         </div>
@@ -245,10 +221,10 @@ const AdminPanel = () => {
                 
                 <form id="contact-form" className="contact-form" method="post" role="form">
                     <div className="form-group">
-                                <input type="text" placeholder="Your Name" className="form-control" name="name" id="name" required />
+                                <input type="text" placeholder="User Name" className="form-control" name="name" id="name" required />
                     </div>
                         <div className="form-group">
-                            <input type="email" placeholder="Your Email" className="form-control" name="email" id="email" required />
+                            <input type="email" placeholder="User Email" className="form-control" name="email" id="email" required />
                         </div>
 
                         <div className="form-group">

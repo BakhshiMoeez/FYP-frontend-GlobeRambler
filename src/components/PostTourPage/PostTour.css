@@ -98,11 +98,47 @@
     padding: 20px 0;
     margin: 0;
     padding-left: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    font-family: 'Inter';
 }
 
 .checkbox-post-tour input {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     margin-top: 4px;
+}
+
+.post-tour-categories .tab-content {
+    max-width: 600px;
+}
+
+:where(.css-dev-only-do-not-override-ph9edi).ant-form legend {
+    display: none;
+}
+
+:where(.css-dev-only-do-not-override-ph9edi).ant-form-item .ant-form-item-label >label {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.post-tour-categories .nav-tabs .nav-link.active,
+.post-tour-categories .nav-tabs .nav-link:hover,
+.post-tour-categories .nav-tabs .nav-item.show .nav-link {
+    color: #F1592A;
+    background-color: transparent;
+    border-color: transparent transparent #F1592A;
+}
+
+button.btn.btn-primary.submit {
+    margin-top: 40px;
+    background: #f1592a;
+    outline: none;
+    border: none;
+}
+
+:where(.css-dev-only-do-not-override-ph9edi).ant-input:hover,
+:where(.css-dev-only-do-not-override-ph9edi).ant-input:focus,
+:where(.css-dev-only-do-not-override-ph9edi).ant-input-focused {
+    border-color: #f1592a;
+    box-shadow: none;
 }
