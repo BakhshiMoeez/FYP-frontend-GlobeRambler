@@ -12,6 +12,7 @@ import TourDetail from "./components/TourDetail/TourDetail";
 import ContactUs from "./components/ContactUS/ContactUs";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
+import NotificationsDetials from "./components/NotificationsDetails/NotificationsDetails";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
+        <Route path="/notifications/:id" element={<NotificationsDetials />} />
       </Routes>
     </BrowserRouter>
   );

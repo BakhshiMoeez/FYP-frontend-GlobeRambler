@@ -10,7 +10,8 @@ export default function BuyerProfile() {
 
   const buyerEmail = Cookies.get('buyerEmail');
   const [updateProfile, setUpdateProfile] = useState(false);
-
+  const [notifications, setNotifications] = useState([{_id : '', title: '', desc: ''}]);
+  
   const [buyerInfo, setBuyerInfo] = useState({
     firstName: '',
     lastName: '',
@@ -30,8 +31,20 @@ export default function BuyerProfile() {
         console.log(error); // handle the error response
       }
     };
+
+    const getNotifcations = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/notification/`);
+        console.log(response.data); // handle the success response
+        setNotifications(response.data);
+      } catch (error) {
+        console.log(error); // handle the error response
+      }
+    };
   
     fetchData();
+    getNotifcations();
+
   }, [buyerEmail]);
   
   async function updateProfilePic(e)
@@ -58,6 +71,8 @@ export default function BuyerProfile() {
       console.error('Error uploading image to Cloudinary:', error);
     }
   }; 
+
+   
 
   if(updateProfile) { return <UpdateBuyerProfile 
       setUpdatedProfile={setUpdateProfile} 
@@ -94,11 +109,15 @@ export default function BuyerProfile() {
                 </div>
                 <ul className="notification-drop">
                   <li className="item">
-                    <i className="fas fa-bell notification-bell" aria-hidden="true"></i> <span className="btn__badge pulse-button ">4</span>     
+                    <i className="fas fa-bell notification-bell" aria-hidden="true"></i> <span className="btn__badge pulse-button "><span style={{opacity: 0}}>4</span></span>     
                     <ul>
-                      <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
-                      <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
-                      <li> <span><img src="/asset/img/bakhshiImage.png" alt=""/></span> <p> You have a new notification </p> </li>
+                    {notifications.slice().reverse().map(notification => (
+                          <li key={notification._id}> 
+                            <span>
+                              <img src="https://cdn1.vectorstock.com/i/1000x1000/29/70/admin-text-rubber-stamp-vector-11362970.jpg" alt=""/>
+                            </span> 
+                            <p><a href={`/notifications/${notification._id}`}>{notification.title}</a></p> </li>
+                        ))}
                     </ul>
                   </li>
                 </ul>

@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import './AdminPanel.css';
 
 const AdminPanel = () => {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,6 +24,19 @@ const AdminPanel = () => {
         Cookies.set('adminLogin', 'false');
         navigate('/adminLogin');
     };
+
+    const createNotification = async (e) => {
+        e.preventDefault();
+        try{
+            const result = await axios.post(`${process.env.REACT_APP_API_URL}/api/notification/`, {title: title, description: description});
+            console.log(result);
+        }
+        catch (error) {
+            console.log(error); // handle the error response
+        }
+        
+    };
+
     return (
         <>
         {/* Main */}
@@ -241,20 +257,14 @@ const AdminPanel = () => {
                     <h1>Send Notification</h1>
                 </div>
                 
-                <form id="contact-form" className="contact-form" method="post" role="form">
-                    <div className="form-group">
-                                <input type="text" placeholder="User Name" className="form-control" name="name" id="name" required />
-                    </div>
+                <form id="contact-form" onSubmit={createNotification} className="contact-form" role="form">
+
                         <div className="form-group">
-                            <input type="email" placeholder="User Email" className="form-control" name="email" id="email" required />
+                            <input onChange={(e) => {setTitle(e.target.value)}} type="text" placeholder="Subject" className="form-control" name="subject" id="subject" required />
                         </div>
 
                         <div className="form-group">
-                            <input type="text" placeholder="Subject" className="form-control" name="subject" id="subject" required />
-                        </div>
-
-                        <div className="form-group">
-                            <textarea rows="6" placeholder="Message" className="form-control" name="message"id="message" required></textarea>    
+                            <textarea rows="6" placeholder="Message" className="form-control" onChange={(e) => {setDescription(e.target.value)}}  name="message" id="message" required></textarea>    
                         </div>
 
                         <div id="submit" className="">
