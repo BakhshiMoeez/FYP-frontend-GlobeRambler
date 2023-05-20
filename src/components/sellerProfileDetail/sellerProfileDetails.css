@@ -1,0 +1,186 @@
+
+.seller-detail-main-container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.seller-detail-main-container-image{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.seller-detail-main-container-cover-up-div{
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seller-detail-main-container-cover-up-div-content{
+  width: 60%;
+  height: 80%;
+  /* background-color: violet; */
+  /* background-color: rgba(238, 130, 238, 0.3); */
+  background-color: rgba(241, 89, 42, 0.4);
+  border-radius: 30px;
+  opacity: 1;
+  z-index: 50000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 19px;
+}
+
+.seller-detail-seller-profileImg{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seller-detail-seller-profileImg-inside{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.seller-detail-seller-info{
+  width: 100%;
+}
+
+.seller-detail-fullName{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seller-detail-info-lower-div{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  height: 100%;
+  margin-left: 30px;
+}
+
+.seller-detail-info-lower-div-left, .seller-detail-info-lower-right{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: aqua; */
+  height: 100%;
+  color: white;
+  font-size: 15px;
+  text-align: left;
+}
+
+.seller-detail-info-lower-div-left-element{
+  width: 100%;
+  padding: 20px;
+}
+
+.seller-detail-info-label{
+  font-weight: bolder;
+}
+/* ProfilePage.css
+
+.seller-detail-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .seller-detail-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .seller-detail-content {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .seller-detail-picture {
+    width: 200px;
+    margin-right: 20px;
+  }
+  
+  .seller-detail-picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .seller-detail-details {
+    flex-grow: 1;
+  }
+  
+  .seller-detail-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .seller-detail-info {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 10px;
+  }
+  
+  .seller-detail-info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .seller-detail-info-label {
+    font-weight: bold;
+    min-width: 150px;
+  }
+  
+  .seller-detail-info-value {
+    margin-left: 10px;
+  }
+  
+  .seller-detail-info-value:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  @media (max-width: 600px) {
+    .seller-detail-content {
+      flex-direction: column;
+    }
+  
+    .seller-detail-picture {
+      margin-right: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    .seller-detail-details {
+      text-align: center;
+    }
+  }
+   */

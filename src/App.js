@@ -13,6 +13,7 @@ import ContactUs from "./components/ContactUS/ContactUs";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 import NotificationsDetials from "./components/NotificationsDetails/NotificationsDetails";
+import SellerProfileDetail from "./components/sellerProfileDetail/sellerProfileDetail";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -37,6 +38,10 @@ function App() {
         <Route path="/adminPanel" element={<AdminPanel />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/notifications/:id" element={<NotificationsDetials />} />
+        <Route
+          path="/sellerProfileDetail/:email"
+          element={<SellerProfileDetail />}
+        />
       </Routes>
     </BrowserRouter>
   );

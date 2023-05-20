@@ -71,30 +71,6 @@ const TourDetail = () => {
           };
           
           fetchData();
-          
-        // const getTour = async () => {
-                
-        //     axios.get(`${process.env.REACT_APP_API_URL}/api/tour/${id}`)
-        //     .then((res) => {
-                
-        //     setTour(res.data);
-                
-        //         setBronzePrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.bronzePhotographyPrice, 10) + parseInt(res.data.bronzeHotelPrice, 10) + parseInt(res.data.bronzeMealPrice, 10) + parseInt(res.data.bronzeCarPrice, 10));
-        //         setSilverPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.silverPhotographyPrice, 10) + parseInt(res.data.silverHotelPrice, 10) + parseInt(res.data.silverMealPrice, 10) + parseInt(res.data.silverCarPrice, 10));
-        //         setGoldPrice(parseInt(res.data.basePrice, 10) + parseInt(res.data.goldPhotographyPrice, 10) + parseInt(res.data.goldHotelPrice, 10) + parseInt(res.data.goldMealPrice, 10) + parseInt(res.data.goldCarPrice, 10));
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
-
-        //     const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/seller/${tour.sellerEmail}`);
-        //     console.log(res.data);
-        //     setFirstName(res.data.firstName);
-        //     setLastName(res.data.lastName);
-        // }
-    
-        // getTour();
-
     }, []);
 
     return (
@@ -113,7 +89,7 @@ const TourDetail = () => {
 
                         <div className="tour-details-info-seller-info">
                             <img className='tour-details-info-seller-info-img' src={tour.sellerProfilePic} alt="profile pic" />
-                            <h5>{`${firstName} ${lastName}`}</h5>
+                            <h5><a className='tour-details-anchor-tag-profile'  style={{target: '_blank',textDecoration: "None", color:'black'}} href={`/sellerProfileDetail/${tour.email}`}>{`${firstName} ${lastName}`}</a></h5>
                         </div>
 
                         <h2 className="tour-details-name">{tour.title}</h2>
