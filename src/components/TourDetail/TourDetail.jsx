@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Carousel, Tour } from 'antd';
+import Cookies from 'js-cookie';
 import './TourDetail.css';
 
 const TourDetail = () => {
@@ -73,6 +74,56 @@ const TourDetail = () => {
           fetchData();
     }, []);
 
+    const currentDate = new Date();
+    const dateString = currentDate.toString();
+    const handleCheckoutGold = () => {    
+        Cookies.set('tourDate',dateString);
+        Cookies.set('tourPrice',goldPrice);
+        Cookies.set('tourName',tour.title);
+        Cookies.set('sellerEmail',tour.email);
+             
+        // const cookieNames = Object.keys(Cookies.get());
+        // console.log(cookieNames);
+        // console.log(tour.email);
+
+        const routeUrl = `/paymentForm/${id}`; 
+        window.open(routeUrl, '_blank');
+
+        
+    }
+
+    const handleCheckoutSilver = () => {    
+        Cookies.set('tourDate',dateString);
+        Cookies.set('tourPrice',silverPrice);
+        Cookies.set('tourName',tour.title);
+        Cookies.set('sellerEmail',tour.email);
+             
+        // const cookieNames = Object.keys(Cookies.get());
+        // console.log(cookieNames);
+        // console.log(tour.email);
+
+        const routeUrl = `/paymentForm/${id}`; 
+        window.open(routeUrl, '_blank');
+
+        
+    }
+
+    const handleCheckoutBronze = () => {    
+        Cookies.set('tourDate',dateString);
+        Cookies.set('tourPrice',bronzePrice);
+        Cookies.set('tourName',tour.title);
+        Cookies.set('sellerEmail',tour.email);
+             
+        // const cookieNames = Object.keys(Cookies.get());
+        // console.log(cookieNames);
+        // console.log(tour.email);
+
+        const routeUrl = `/paymentForm/${id}`; 
+        window.open(routeUrl, '_blank');
+
+        
+    }
+
     return (
         <>
     <div className="tour-details-container">
@@ -128,7 +179,7 @@ const TourDetail = () => {
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.bronzeCarDesc}</p>
                                         <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.bronzeAddInfo}</p>
 
-                                        <a href="/BuyerLogin"><button className="tour-continue-btn" >Continue as Buyer</button></a>
+                                        <a href="/BuyerLogin"><button className="tour-continue-btn" onClick={handleCheckoutBronze} >Checkout</button></a>
                                     </div>
                                 </div>                                
                             </div>
@@ -145,7 +196,7 @@ const TourDetail = () => {
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.silverCarDesc}</p>
                                         <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.silverAddInfo}</p>
 
-                                        <a href="/BuyerLogin"><button className="tour-continue-btn" >Continue as Buyer</button></a>
+                                        <a href="/BuyerLogin"><button className="tour-continue-btn" onClick={handleCheckoutSilver} >Checkout</button></a>
                                     </div>
                                 </div>  
                             </div>
@@ -162,7 +213,7 @@ const TourDetail = () => {
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.goldCarDesc}</p>
                                         <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.goldAddInfo}</p>
 
-                                        <a href="/BuyerLogin"><button className="tour-continue-btn" >Continue as Buyer</button></a>
+                                        <a href="/BuyerLogin"><button className="tour-continue-btn" onClick={handleCheckoutGold} >Checkout</button></a>
                                     </div>
                                 </div>  
                             </div>

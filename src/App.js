@@ -14,6 +14,7 @@ import AdminPanel from "./components/AdminPanel/AdminPanel";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 import NotificationsDetials from "./components/NotificationsDetails/NotificationsDetails";
 import SellerProfileDetail from "./components/sellerProfileDetail/sellerProfileDetail";
+import PaymentFrom from "./components/PaymentForm/PaymentForm";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -42,6 +43,7 @@ function App() {
           path="/sellerProfileDetail/:email"
           element={<SellerProfileDetail />}
         />
+        <Route path="/paymentForm/:id" element={<PaymentFrom />} />
       </Routes>
     </BrowserRouter>
   );

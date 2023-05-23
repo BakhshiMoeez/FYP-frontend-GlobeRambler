@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+    outline: none; 
+    border: none;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+}
+
+.payment-form-container{
+    min-height: 100vh;
+    background-image: url('../../../public/asset/buyerDashboard/9.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-bottom: 60px;
+}
+
+.payment-form-container .payment-form-form{
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.192);
+    padding: 20px;
+    width: 600px;
+    padding-top: 160px;
+}
+
+.payment-form-container .payment-form-form .payment-form-inputBox{
+    margin-top: 20px;
+}
+
+.payment-form-container .payment-form-form .payment-form-inputBox .payment-form-span{
+    display: block;
+    color:#999;
+    padding-bottom: 5px;
+}
+
+.payment-form-container .payment-form-form .payment-form-inputBox input,
+.payment-form-container .payment-form-form .inputBox .payment-form-month-input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border:1px solid rgba(0,0,0,.3);
+    color:#444;
+}
+
+.payment-form-container .payment-form-form .payment-form-flexbox{
+    display: flex;
+    gap:15px;
+}
+
+.payment-form-container .payment-form-form .payment-form-flexbox .payment-form-inputBox{
+    flex:1 1 150px;
+}
+
+.payment-form-container .payment-form-form .payment-form-submit-btn{
+    width: 100%;
+    background:linear-gradient(45deg, rgb(222, 177, 101), #f1592a);
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color:#fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.payment-form-container .payment-form-form .payment-form-submit-btn:hover{
+    letter-spacing: 2px;
+    opacity: .8;
+}
+
+.payment-form-container .payment-form-card-container{
+    margin-bottom: -150px;
+    position: relative;
+    height: 250px;
+    width: 400px;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-front{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0; left: 0;
+    background:linear-gradient(45deg, rgb(222, 177, 101), #f1592a);
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    padding:20px;
+    transform:perspective(1000px) rotateY(0deg);
+    transition:transform .4s ease-out;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-front .payment-form-image{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-front .payment-form-image img{
+    height: 50px;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-front .payment-form-card-number-box{
+    padding:30px 0;
+    font-size: 22px;
+    color:#fff;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-front .payment-form-flexbox{
+    display: flex;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-front .payment-form-flexbox .payment-form-box:nth-child(1){
+    margin-right: auto;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-front .payment-form-flexbox .payment-form-box{
+    font-size: 15px;
+    color:#fff;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-back{
+    position: absolute;
+    top:0; left: 0;
+    height: 100%;
+    width: 100%;
+    background:linear-gradient(45deg, rgb(222, 177, 101), #f1592a);
+    border-radius: 5px;
+    padding: 20px 0;
+    text-align: right;
+    backface-visibility:hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    transform:perspective(1000px) rotateY(180deg);
+    transition:transform .4s ease-out;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-back .payment-form-stripe{
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-back .payment-form-box{
+    padding: 0 20px;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-back .payment-form-box .payment-form-span{
+    color:#fff;
+    font-size: 15px;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-back .payment-form-box .payment-form-cvv-box{
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    color:#333;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.payment-form-container .payment-form-card-container .payment-form-back .payment-form-box img{
+    margin-top: 30px;
+    height: 30px;
+}

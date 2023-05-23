@@ -27,7 +27,7 @@
 
 .seller-detail-main-container-cover-up-div-content{
   width: 60%;
-  height: 80%;
+  height: auto;
   /* background-color: violet; */
   /* background-color: rgba(238, 130, 238, 0.3); */
   background-color: rgba(241, 89, 42, 0.4);
@@ -56,6 +56,7 @@
 
 .seller-detail-seller-info{
   width: 100%;
+  /* overflow: scroll; */
 }
 
 .seller-detail-fullName{
