@@ -146,7 +146,7 @@ export default function SellerProfile() {
         </div>
 
         {/* Card Section */}
-        <CardSection />
+        {/* <CardSection /> */}
 
         {/* Customer Reviews Section */}
         

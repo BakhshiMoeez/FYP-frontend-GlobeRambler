@@ -1,3 +1,8 @@
+.aboutus-banner-search{
+    margin-top: -100px;
+    z-index: 70000;
+}
+
 .card-section-main-container{
     width: 100%;
     display: flex;

@@ -64,13 +64,14 @@ const dummyData = [
 ];
 
 
-export default function CardSection() {
+export default function CardSection({searchedTerm}) {
     const [Tours, setTours] = useState([]);
     
     async function fetchAllTheTours()
     {
         const response = await axios.get('http://localhost:3500/api/tour');
         setTours(response.data);
+        setDummyTestArray(response.data);
         //console.log(Tours);
     }
 
@@ -81,8 +82,28 @@ export default function CardSection() {
             console.log(err.message);
         }
     }, []);
+
+    const [searchTerm, setSearchTerm] = useState('');
+    const [dummyTestArray, setDummyTestArray] = useState([]);
+
+    function searchFunctionality(e){ 
+        console.log(dummyTestArray);
+        e.preventDefault();
+        console.log(searchTerm);
+        const filteredTours = dummyTestArray.filter((tour) => {
+            return tour.title.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+        setTours(filteredTours);
+    }
+
   return (
     <>
+    <div className="aboutus-banner-search">
+        <form className='aboutus-search-form'>
+            <input className='aboutus-form-input' onChange={(e) => {setSearchTerm(e.target.value)}} type="text" placeholder='Destination, City'/>
+            <button className='aboutus-search-button' onClick={searchFunctionality}>Search</button>
+        </form>
+    </div>
     <div className="card-section-main-container">
         <div className="card-section-inside-container">
             <div className="card-section-heading-text">

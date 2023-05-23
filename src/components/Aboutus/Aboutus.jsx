@@ -20,12 +20,12 @@ export default function Aboutus() {
                 <div className="aboutus-banner-text-lower">
                     <p>Tips, experiences, and places. All in one place</p>
                 </div>
-                <div className="aboutus-banner-search">
+                {/* <div className="aboutus-banner-search">
                     <form className='aboutus-search-form'>
                         <input className='aboutus-form-input' type="text" placeholder='Destination, City'/>
                         <button className='aboutus-search-button'>Search</button>
                     </form>
-                </div>
+                </div> */}
             </div>
         </div>
         {/*The content below the banner image*/}
