@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function BuyerProfile() {
@@ -71,8 +72,12 @@ export default function BuyerProfile() {
       console.error('Error uploading image to Cloudinary:', error);
     }
   }; 
+  
+  const navigate = useNavigate();
 
-   
+  const handleLogout = () => {
+    navigate('/');
+  } 
 
   if(updateProfile) { return <UpdateBuyerProfile 
       setUpdatedProfile={setUpdateProfile} 
@@ -127,7 +132,9 @@ export default function BuyerProfile() {
         </div>
         {/* Card Section */}
         {/* <CardSection /> */}
-
+        <div className="buyerProfile-logout-button">
+          <button className='btn btn-warning' id='logout-btn-buyer' onClick={handleLogout}>Logout</button>
+        </div>
         {/* Footer Section */}
         <Footer />
 

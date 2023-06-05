@@ -16,11 +16,6 @@ export default function MainLoginPage() {
                 </div>
             </div>
             <div className="col-12 col-lg-6">
-                <ul className='main-page-ul'>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
 
                 <div className="main-page-main-content">
                     <a href="/SellerLogin"><button className="main-page-continue-btn" >Continue as Seller</button></a>

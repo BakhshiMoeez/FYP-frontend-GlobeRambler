@@ -21,3 +21,11 @@
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
+.google-hide {
+    display: none !important;
+}
+
+p.login-signup-info-text {
+    margin-bottom: 20px;
+}

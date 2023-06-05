@@ -9,6 +9,13 @@ import './AdminPanel.css';
 const AdminPanel = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [paymentRecordss, setPaymentRecordss] = useState([{
+        sellerName: '',
+        buyerName: '',
+        date: '',
+        amount: '',
+        tourName: ''
+    }]);
 
     const navigate = useNavigate();
 
@@ -18,8 +25,20 @@ const AdminPanel = () => {
         {
             navigate('/adminLogin');
         }
-    });
+
+        getPaymentRecords();
+    }, []);
     
+    const getPaymentRecords = async () => {
+        try{
+            const paymentRecords = await axios.get(`${process.env.REACT_APP_API_URL}/api/paymentForm`);
+            console.log(paymentRecords.data);
+            setPaymentRecordss(paymentRecords.data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     const handlogout = () => {
         Cookies.set('adminLogin', 'false');
         navigate('/adminLogin');
@@ -136,114 +155,42 @@ const AdminPanel = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>                                    
+                            {paymentRecordss.map((paymentRecord, index) => (
+                                <tr key={index}>
                                     <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         15 May, 2022
-                                        </a>
+                                    <a className="text-heading font-semibold" href="#">
+                                        {paymentRecord.date}
+                                    </a>
                                     </td>
                                     <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                            Masab Ahmad
-                                        </a>
+                                    <img
+                                        alt="..."
+                                        src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                        className="avatar avatar-sm rounded-circle me-2"
+                                    />
+                                    <a className="text-heading font-semibold" href="#">
+                                        {paymentRecord.buyerName}
+                                    </a>
                                     </td>
                                     <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                           Moeez Ahmad Bakhshi
-                                        </a>
+                                    <img
+                                        alt="..."
+                                        src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                        className="avatar avatar-sm rounded-circle me-2"
+                                    />
+                                    <a className="text-heading font-semibold" href="#">
+                                        {paymentRecord.sellerName}
+                                    </a>
                                     </td>
                                     <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         Tour to Murree
-                                        </a>
+                                    <a className="text-heading font-semibold" href="#">
+                                        {paymentRecord.tourName}
+                                    </a>
                                     </td>
-                                    <td>
-                                        Rs. 10,000
-                                    </td>
+                                    <td>{paymentRecord.amount}</td>
                                 </tr>
-                                <tr>                                    
-                                    <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         15 May, 2022
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                            Masab Ahmad
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                           Moeez Ahmad Bakhshi
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         Tour to Murree
-                                        </a>
-                                    </td>
-                                    <td>
-                                        Rs. 10,000
-                                    </td>
-                                </tr>
-                                <tr>                                    
-                                    <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         15 May, 2022
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                            Masab Ahmad
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                           Moeez Ahmad Bakhshi
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         Tour to Murree
-                                        </a>
-                                    </td>
-                                    <td>
-                                        Rs. 10,000
-                                    </td>
-                                </tr>
-                                <tr>                                    
-                                    <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         15 May, 2022
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                            Masab Ahmad
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                                        <a className="text-heading font-semibold" href="#">
-                                           Moeez Ahmad Bakhshi
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a className="text-heading font-semibold" href="#">
-                                         Tour to Murree
-                                        </a>
-                                    </td>
-                                    <td>
-                                        Rs. 10,000
-                                    </td>
-                                </tr>
+                                ))}
+
                             </tbody>
                         </table>
                     </div>
@@ -282,3 +229,116 @@ const AdminPanel = () => {
 }
 
 export default AdminPanel;
+
+
+{/*
+
+<tr>                                    
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         {paymentRecordss[0].date}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                            {paymentRecordss[0].buyerName}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                           {paymentRecordss[0].sellerName}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         {paymentRecordss[0].tourName}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {paymentRecordss[0].amount}
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         15 May, 2022
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                            Masab Ahmad
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                           Moeez Ahmad Bakhshi
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         Tour to Murree
+                                        </a>
+                                    </td>
+                                    <td>
+                                        Rs. 10,000
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         15 May, 2022
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                            Masab Ahmad
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                           Moeez Ahmad Bakhshi
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         Tour to Murree
+                                        </a>
+                                    </td>
+                                    <td>
+                                        Rs. 10,000
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         15 May, 2022
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                            Masab Ahmad
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                                        <a className="text-heading font-semibold" href="#">
+                                           Moeez Ahmad Bakhshi
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a className="text-heading font-semibold" href="#">
+                                         Tour to Murree
+                                        </a>
+                                    </td>
+                                    <td>
+                                        Rs. 10,000
+                                    </td>
+                                </tr>
+*/}

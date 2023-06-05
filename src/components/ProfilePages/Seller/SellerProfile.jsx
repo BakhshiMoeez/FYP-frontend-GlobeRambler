@@ -97,6 +97,11 @@ export default function SellerProfile() {
     setUpdatedProfile={setUpdateProfile} 
     sellerInfo = {sellerInfo}
   />}
+
+  const handleLogout = () => {
+    Navigate('/');
+  } 
+
   return (
     <div className="Aboutus-main-container profile-info">
         {/*banner image*/}
@@ -147,7 +152,9 @@ export default function SellerProfile() {
 
         {/* Card Section */}
         {/* <CardSection /> */}
-
+        <div className="buyerProfile-logout-button">
+          <button className='btn btn-warning' id='logout-btn-buyer' onClick={handleLogout}>Logout</button>
+        </div>
         {/* Customer Reviews Section */}
         
         {/* Footer Section */}

@@ -45,16 +45,16 @@ export default function SellerLogin() {
     <div className="container-fluid main-page login-signup">
         <div className="row main-page seller">
             <div className="col-12 col-lg-6">
-                <ul className='main-page-ul'>
+                {/* <ul className='main-page-ul'>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
-                </ul>
+                </ul> */}
 
                 <div className="login-signup-form-signing">
                     <p className="login-signup-info-text">Sign in to Globe Ramblers</p>
-                    <button className="login-signup-continue-btn"><span><i className='fab fa-google'></i></span>Sign up with google</button>
-                    <div className="login-signup-or-div">
+                    <button className="login-signup-continue-btn google-hide"><span><i className='fab fa-google'></i></span>Sign up with google</button>
+                    <div className="login-signup-or-div google-hide">
                         <hr className="login-signup-hr-1" />
                         <p>OR</p>
                         <hr className="login-signup-hr-1" />

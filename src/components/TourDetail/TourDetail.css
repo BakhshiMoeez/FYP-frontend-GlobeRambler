@@ -105,6 +105,10 @@
     margin-right: 5px;
 }
 
+.carousel-slider img {
+    max-width: 842px;
+}
+
 .tour-details-tabs-description {
     margin-top: 30px;
 }

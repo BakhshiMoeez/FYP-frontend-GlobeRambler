@@ -79,16 +79,22 @@
 
 .contact-us-info-container-num{
     display: flex;
+    width: 300px;
     flex-direction: column;
     /* margin-left: 3rem; */
     /* width: 15rem; */
     align-items: center;
+    gap: 5px;
     /* border: 2px solid red; */
 
 }
 
 .contact-us-info-container-location{
     display: flex;
+    width: 300px;
+    text-align: center;
+    gap: 5px;
+    margin: 0 40px;
     /* margin-left: 3rem; */
     /* margin-right: 3rem; */
     flex-direction: column;
@@ -98,6 +104,9 @@
 
 .contact-us-info-container-email{
     display: flex;
+    text-align: center;
+    gap: 5px;
+    width: 300px;
     flex-direction: column;
     align-items: center;
     /* border: 2px solid red; */
@@ -117,7 +126,8 @@
     position: absolute;
     top: 5rem;
     left: 45rem;
-    background-color: rgb(123, 93, 93);
+    background-color: #fff;
+    border-radius: 40px;
 
 }
 .contact-us-footer{

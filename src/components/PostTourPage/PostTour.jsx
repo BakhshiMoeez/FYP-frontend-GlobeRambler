@@ -18,10 +18,15 @@ import {
 import axios from "axios";
 import Cookie from "js-cookie";
 import { FileOutlined } from "@ant-design/icons";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+
 const styles = {
   color: "black",
 };
+
 export default function PostTour() {
+
   const presetKey = "bvifyafi";
   const cloudName = "dbrp1arte";
   const [coverImage, setCoverImage] = useState({});
@@ -61,6 +66,8 @@ export default function PostTour() {
 
   const sellerEamil = Cookie.get("sellerEmail");
   const sellerProfilePic = Cookie.get("sellerProfilePic");
+
+  const navigate = useNavigate();
 
   const handlePublish = async (e) => {
     e.preventDefault();
@@ -108,6 +115,7 @@ export default function PostTour() {
       tourInfo
     );
     console.log(response.data);
+    navigate(Cookies.get('profilePath'));
   };
 
   const handleCoverFileUpload = (event) => {

@@ -28,16 +28,6 @@ const ContactUs = () => {
             <div className="contact-us-banner-text-lower">
               <p>Tips, experiences, and places. All in one place</p>
             </div>
-            <div className="contact-us-banner-search">
-              <form className="contact-us-search-form">
-                <input
-                  className="contact-us-form-input"
-                  type="text"
-                  placeholder="Destination, City"
-                />
-                <button className="contact-us-search-button">Search</button>
-              </form>
-            </div>
           </div>
         </div>
         {/*The content below the banner image*/}
@@ -78,9 +68,8 @@ const ContactUs = () => {
             </div>
             <h3>Looking for a Tour?</h3>
             <div className="contact-us-info-container-email-tell">
-              <p style={{fontSize:"15px", color:"#c0c0c0"}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p style={{fontSize:"15px", color:"#c0c0c0"}}>Lorem ipsum dolor sit amet.</p>
-            </div>
+              <p style={{fontSize:"15px", color:"#c0c0c0"}}>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+               </div>
             <div className="contact-us-info-container-email-mob">
               <p style={{color:"#f1592a"}}>tour@globeramblers.com</p>
             </div>

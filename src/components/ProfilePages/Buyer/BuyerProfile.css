@@ -39,8 +39,8 @@
     display: none;
 }
 .profile-info-details {
-    width: 70%;
-    padding-left: 5%;
+    /* width: 70%; */
+    padding-left: 3%;
     padding-top: 40px;
 }
 
@@ -49,6 +49,14 @@ img.profile-info-image {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.buyerProfile-logout-button{
+    height: 400px;
+}
+
+#logout-btn-buyer{
+    margin-top: 300px;
 }
 
 .profile-info .card-section-main-container {
@@ -67,7 +75,7 @@ h6.profile-info-location {
 
 .profile-info-email-phone-div {
     display: flex;
-    max-width: 650px;
+    max-width: 760px;
     justify-content: flex-start;
     align-items: center;
     padding-top: 50px;

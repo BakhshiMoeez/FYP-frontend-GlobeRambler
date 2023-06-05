@@ -119,9 +119,7 @@ const TourDetail = () => {
         // console.log(tour.email);
 
         const routeUrl = `/paymentForm/${id}`; 
-        window.open(routeUrl, '_blank');
-
-        
+        window.open(routeUrl, '_blank'); 
     }
 
     return (
