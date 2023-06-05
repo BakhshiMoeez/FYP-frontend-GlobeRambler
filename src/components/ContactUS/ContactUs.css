@@ -15,17 +15,19 @@
 
 .contact-us-banner-image{
     width: 100%;
+    min-height: 450px;
     position: relative;
+    object-fit: cover;
 }
 
-.contact-us-inside-container{
+.contact-us-inside-container {
     width: 80%;
     position: absolute;
     padding: 20px;
     top: 0;
 }
 
-.contact-us-inside-container-flex{
+.contact-us-inside-container-flex {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,12 +39,14 @@
     color: white;
     font-size: 1.7rem;
     font-weight: bold;
+    text-align: center;
+    padding-top: 60px;
 }
 
 .contact-us-banner-text-lower
 {
-    margin-top: -60px;
     color: white;
+    text-align: center;
 }
 
 .contact-us-form-input
@@ -73,8 +77,11 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    /* border: 3px solid red; */
-    height: 20rem;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 40px;
+    padding: 60px 20px;
+    width: 100%;
 }
 
 .contact-us-info-container-num{
@@ -122,10 +129,11 @@
     height: 40rem;
 }
 .contact-us-form-get-in-touch{
-    width: 35%;
+    width: 100%;
+    max-width: 500px;
     position: absolute;
     top: 5rem;
-    left: 45rem;
+    right: 5rem;
     background-color: #fff;
     border-radius: 40px;
 
@@ -141,3 +149,20 @@
 }
 /* ================================ */
 
+@media(min-width: 1921px) {
+    .contact-us-form-container-image {
+        width: 100%;
+        position: relative;
+        height: 100vw;
+        object-fit: cover;
+        max-height: 735px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-us-form-get-in-touch {
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+}

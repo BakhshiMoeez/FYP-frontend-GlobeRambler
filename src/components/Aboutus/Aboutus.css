@@ -13,9 +13,11 @@
     flex-direction: column;
 }
 
-.Aboutus-banner-image{
+.Aboutus-banner-image {
     width: 100%;
+    min-height: 450px;
     position: relative;
+    object-fit: cover;
 }
 
 .aboutus-inside-container{
@@ -38,12 +40,14 @@
     color: white;
     font-size: 1.7rem;
     font-weight: bold;
+    text-align: center;
+    padding-top: 70px;
 }
 
 .aboutus-banner-text-lower
 {
-    margin-top: -60px;
     color: white;
+    text-align: center;
 }
 
 .aboutus-form-input
@@ -86,7 +90,8 @@
 
 .aboutus-black-background-text-width
 {
-    width: 40%;
+    max-width: 600px;
+    width: 100%;
     padding: 40px;
 }
 
@@ -112,6 +117,7 @@
     flex-direction: column;
     margin-bottom: 100px;
     margin-top: 60px;
+    max-width: 1200px;
 }
 .team-text p{
     font-size: 2rem;
@@ -153,22 +159,24 @@
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
 }
 
 .aboutus-customer-reviews-text
 {
     font-size: 2rem;
     font-weight: bolder;
-    margin-bottom: 50px;
+    margin-bottom: 50px;;
 }
 
 .aboutus-customer-reviews-cards
 {
     width: 80%;
     display: flex;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
+    max-width: 1000px;
 }
 
 .aboutus-customer-reviews-card
@@ -202,3 +210,21 @@
 }
 
 /* ================================================ */
+
+@media (max-width: 992px) {
+    .team-intro-cards,
+    .aboutus-customer-reviews-cards {
+        flex-wrap: wrap;
+        gap: 65px;
+        justify-content: center;
+    }
+
+    .aboutus-form-input {
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        padding: 12px 15px;
+        max-width: 400px;
+        width: 64%;
+    }
+}

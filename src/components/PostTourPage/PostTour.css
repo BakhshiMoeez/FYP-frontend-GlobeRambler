@@ -142,3 +142,17 @@ button.btn.btn-primary.submit {
     border-color: #f1592a;
     box-shadow: none;
 }
+
+.post-tour-main-container .navlink {
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    form.ant-form {
+        margin: 0;
+    }
+
+    .post-tour-inside-container {
+        width: 95%;
+    }
+}

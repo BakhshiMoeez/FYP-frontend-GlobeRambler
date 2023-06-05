@@ -13,7 +13,7 @@ export default function Navbar() {
     <div className="Navbar-main-container">
         <div className="navbar-inside-container">
             <div className="navbar-logo">
-                <img src="/asset/logo/logo.png" alt="logo" className='navbar-logo' />
+                <a href="/"><img src="/asset/logo/logo.png" alt="logo" className='navbar-logo' /></a>
             </div>
             <div className="navbar-elements">
                 <ul className='navbar-ul'>

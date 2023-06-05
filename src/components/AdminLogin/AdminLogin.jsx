@@ -42,11 +42,11 @@ export default function AdminLogin() {
                 </div>
             </div>
             <div className="col-12 col-lg-6">
-                <ul className='main-page-ul'>
+                {/* <ul className='main-page-ul'>
                     <li><a href="/">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
-                </ul>
+                </ul> */}
 
                 <div className="login-signup-form-signing">
                     <p className="login-signup-info-text">Admin Login</p>

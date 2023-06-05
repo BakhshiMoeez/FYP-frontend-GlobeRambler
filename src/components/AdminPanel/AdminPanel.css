@@ -21,7 +21,8 @@
 
 .contact-form-wrapper {
     margin: 50px auto;
-    width: 600px;
+    max-width: 600px;
+    width: 90%;
 }
 .contact-form-wrapper .title {
     margin-bottom: 30px;
@@ -54,4 +55,10 @@
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .admin-logo-logout-header img {
+        max-width: 200px;
+    }
 }

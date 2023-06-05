@@ -113,3 +113,45 @@ h6.profile-info-location {
     right: 40px;
     bottom: 250px;
 }
+
+@media(max-width: 1300px) {
+    .aboutus-inside-container {
+        width: 100%;
+    }
+
+    .profile-info-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .profile-info-details {
+        width: 100%;
+    }
+
+    .profile-info-email-phone-div {
+        display: flex;
+        max-width: 760px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .profile-info-container {
+        margin-top: 60px;
+    }
+
+    .buyerProfile-logout-button {
+        height: 450px;
+    }
+
+    #logout-btn-buyer {
+        margin-top: 360px;
+    }
+
+    .profile-info-phone {
+        margin: 0;
+    }
+    
+}
