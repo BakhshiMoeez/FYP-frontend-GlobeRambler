@@ -22,6 +22,7 @@ export default function Navbar() {
                     <li className='navbar-li'><NavLink className="navlink" to='/aboutus'>About us</NavLink></li>
                     <li className='navbar-li'><NavLink className="navlink" to='/contactus'>Contact us</NavLink></li>
                     <li className='navbar-li'><NavLink className="navlink" to={profilePath}>Profile</NavLink></li>
+                    <li className='navbar-li navbar-logout-btn'><NavLink className="navlink" to='/'><button className='btn btn-warning'>Logout</button></NavLink></li>
                 </ul>
             </div>
         </div>

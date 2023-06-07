@@ -59,11 +59,19 @@
   /* overflow: scroll; */
 }
 
+.seller-profile-page-rating{
+  background-color: rgb(199, 138, 25);
+  opacity: 0.9;
+  padding: 3px;
+  border-radius: 4px;
+}
+
 .seller-detail-fullName{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .seller-detail-info-lower-div{

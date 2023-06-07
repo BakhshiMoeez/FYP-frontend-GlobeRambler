@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { Rate } from 'antd';
 import './sellerProfileDetails.css'
 
 export default function SellerProfileDetail() 
 {
     const { email } = useParams();
+    
+    const [overallRatings, setOverallRatings] = useState(3);
 
     const [seller, setSeller] = useState({
         firstName: '',
@@ -27,6 +30,9 @@ export default function SellerProfileDetail()
                 
                 const sellerRes = await axios.post(`${process.env.REACT_APP_API_URL}/api/seller/`, {email: email});
                 setSeller(sellerRes.data);
+                const rating = await axios.get(`${process.env.REACT_APP_API_URL}/api/rating/${email}`);
+                console.log(rating.data);
+                setOverallRatings(rating.data);
 
             }catch (error) {
                 console.log(error);
@@ -35,6 +41,17 @@ export default function SellerProfileDetail()
         
         getSellerDetails();
     }, [])
+
+    const handleRateChange = async (value) => {
+      console.log('Rate value:', value);
+      try{
+        const rating = await axios.post(`${process.env.REACT_APP_API_URL}/api/rating/`, {sellerEmail: email, starRating: value});
+        setOverallRatings(rating.data);
+        console.log("New Rating: ", rating.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     return (
         <>
@@ -51,6 +68,8 @@ export default function SellerProfileDetail()
                   <div className="seller-detail-seller-info">
                     <div className="seller-detail-fullName">
                       <h2 style={{fontWeight: 'bolder', color: 'white'}}>{`${seller.firstName} ${seller.lastName}`}</h2>
+                      <Rate className='seller-profile-page-rating' defaultValue={2.5} onChange={handleRateChange} />
+                      <h6 style={{color: 'white'}}>Overall Rating: {overallRatings} / 5.0</h6>
                     </div>
                     <div className="seller-detail-info-lower-div">
                       <div className="seller-detail-info-lower-div-left">

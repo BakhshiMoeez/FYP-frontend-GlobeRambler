@@ -133,7 +133,7 @@ export default function BuyerProfile() {
         {/* Card Section */}
         {/* <CardSection /> */}
         <div className="buyerProfile-logout-button">
-          <button className='btn btn-warning' id='logout-btn-buyer' onClick={handleLogout}>Logout</button>
+          {/* <button className='btn btn-warning' id='logout-btn-buyer' onClick={handleLogout}>Logout</button> */}
         </div>
         {/* Footer Section */}
         <Footer />

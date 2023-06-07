@@ -17,7 +17,14 @@ const AdminPanel = () => {
         tourName: ''
     }]);
 
+    const [credentials, setCredentials] = useState({
+        noOfBuyers: '0',
+        noOfSellers: '0',
+        noOfPayments: '0',
+    });
+
     const navigate = useNavigate();
+
 
     useEffect(() => {
         const isAdminLogin = Cookies.get('adminLogin');
@@ -27,6 +34,7 @@ const AdminPanel = () => {
         }
 
         getPaymentRecords();
+        getAdminTabsInfo();
     }, []);
     
     const getPaymentRecords = async () => {
@@ -35,6 +43,15 @@ const AdminPanel = () => {
             console.log(paymentRecords.data);
             setPaymentRecordss(paymentRecords.data);
         } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const getAdminTabsInfo = async () => {
+        try{
+            const result = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/`);
+            setCredentials(result.data);
+        }catch (err) {
             console.log(err);
         }
     }
@@ -75,7 +92,7 @@ const AdminPanel = () => {
                                 <div className="row">
                                     <div className="col">
                                         <span className="h6 font-semibold text-muted text-sm d-block mb-2">No of total users</span>
-                                        <span className="h3 font-bold mb-0">215</span>
+                                        <span className="h3 font-bold mb-0">{credentials.noOfBuyers + credentials.noOfSellers}</span>
                                     </div>
                                     <div className="col-auto">
                                         <div className="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -92,7 +109,7 @@ const AdminPanel = () => {
                                 <div className="row">
                                     <div className="col">
                                         <span className="h6 font-semibold text-muted text-sm d-block mb-2">No of Seller</span>
-                                        <span className="h3 font-bold mb-0">100</span>
+                                        <span className="h3 font-bold mb-0">{credentials.noOfSellers}</span>
                                     </div>
                                     <div className="col-auto">
                                         <div className="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -109,7 +126,7 @@ const AdminPanel = () => {
                                 <div className="row">
                                     <div className="col">
                                         <span className="h6 font-semibold text-muted text-sm d-block mb-2">No of Buyers</span>
-                                        <span className="h3 font-bold mb-0">150</span>
+                                        <span className="h3 font-bold mb-0">{credentials.noOfBuyers}</span>
                                     </div>
                                     <div className="col-auto">
                                         <div className="icon icon-shape bg-warning text-white text-lg rounded-circle">
@@ -125,8 +142,8 @@ const AdminPanel = () => {
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col">
-                                        <span className="h6 font-semibold text-muted text-sm d-block mb-2">Total Earnings</span>
-                                        <span className="h3 font-bold mb-0">Rs. 1000,000</span>
+                                        <span className="h6 font-semibold text-muted text-sm d-block mb-2">Total No. Tours Bought</span>
+                                        <span className="h3 font-bold mb-0">{credentials.noOfPayments}</span>
                                     </div>
                                     <div className="col-auto">
                                         <div className="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
