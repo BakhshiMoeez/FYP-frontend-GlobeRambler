@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Carousel, Tour } from 'antd';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 import './TourDetail.css';
 
 const TourDetail = () => {
@@ -76,51 +77,78 @@ const TourDetail = () => {
 
     const currentDate = new Date();
     const dateString = currentDate.toString();
-    const handleCheckoutGold = () => {    
+    const handleCheckoutGold = async () => {    
         Cookies.set('tourDate',dateString);
         Cookies.set('tourPrice',goldPrice);
         Cookies.set('tourName',tour.title);
         Cookies.set('sellerEmail',tour.email);
-             
-        // const cookieNames = Object.keys(Cookies.get());
-        // console.log(cookieNames);
-        // console.log(tour.email);
 
-        const routeUrl = `/paymentForm/${id}`; 
-        window.open(routeUrl, '_blank');
+        try{
+            const result = await axios.post(`${process.env.REACT_APP_API_URL}/api/paymentForm//create-checkout-session`, {price: goldPrice, tourName: tour.title});
+            console.log(result.data.url);
+            window.open(result.data.url, '_blank')
+        }   
+        catch(err){
+            console.log(err);
+        }
+
+        // const routeUrl = `/paymentForm/${id}`; 
+        // window.open(routeUrl, '_blank');
 
         
     }
 
-    const handleCheckoutSilver = () => {    
+    const handleCheckoutSilver = async () => {    
         Cookies.set('tourDate',dateString);
         Cookies.set('tourPrice',silverPrice);
         Cookies.set('tourName',tour.title);
         Cookies.set('sellerEmail',tour.email);
              
-        // const cookieNames = Object.keys(Cookies.get());
-        // console.log(cookieNames);
-        // console.log(tour.email);
+        try{
+            const result = await axios.post(`${process.env.REACT_APP_API_URL}/api/paymentForm//create-checkout-session`, {price: silverPrice, tourName: tour.title});
+            console.log(result.data.url);
+            window.open(result.data.url, '_blank')
+        }   
+        catch(err){
+            console.log(err);
+        }
 
-        const routeUrl = `/paymentForm/${id}`; 
-        window.open(routeUrl, '_blank');
-
+        // const routeUrl = `/paymentForm/${id}`; 
+        // window.open(routeUrl, '_blank');
         
     }
 
-    const handleCheckoutBronze = () => {    
+    const handleCheckoutBronze = async () => {    
         Cookies.set('tourDate',dateString);
         Cookies.set('tourPrice',bronzePrice);
         Cookies.set('tourName',tour.title);
         Cookies.set('sellerEmail',tour.email);
              
-        // const cookieNames = Object.keys(Cookies.get());
-        // console.log(cookieNames);
-        // console.log(tour.email);
+        try{
+            const result = await axios.post(`${process.env.REACT_APP_API_URL}/api/paymentForm//create-checkout-session`, {price: bronzePrice, tourName: tour.title});
+            console.log(result.data.url);
+            window.open(result.data.url, '_blank')
+        }   
+        catch(err){
+            console.log(err);
+        }
 
-        const routeUrl = `/paymentForm/${id}`; 
-        window.open(routeUrl, '_blank'); 
+        // const routeUrl = `/paymentForm/${id}`; 
+        // window.open(routeUrl, '_blank'); 
     }
+
+    // const navigate = useNavigate();
+
+    const handleStripePayment = async () => {
+        try{
+            const result = await axios.post(`${process.env.REACT_APP_API_URL}/api/paymentForm//create-checkout-session`, {});
+            console.log(result.data.url);
+            window.open(result.data.url, '_blank')
+        }   
+        catch(err){
+            console.log(err);
+        }
+    };
 
     return (
         <>

@@ -15,6 +15,8 @@ import AdminLogin from "./components/AdminLogin/AdminLogin";
 import NotificationsDetials from "./components/NotificationsDetails/NotificationsDetails";
 import SellerProfileDetail from "./components/sellerProfileDetail/sellerProfileDetail";
 import PaymentFrom from "./components/PaymentForm/PaymentForm";
+import CheckOutSucess from "./components/CheckoutSucess/CheckoutSucess";
+import CheckOutFail from "./components/CheckoutFail/CheckoutFail";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -39,6 +41,8 @@ function App() {
         <Route path="/adminPanel" element={<AdminPanel />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/notifications/:id" element={<NotificationsDetials />} />
+        <Route path="/checkout-success" element={<CheckOutSucess />} />
+        <Route path="/checkout-failure" element={<CheckOutFail />} />
         <Route
           path="/sellerProfileDetail/:email"
           element={<SellerProfileDetail />}
