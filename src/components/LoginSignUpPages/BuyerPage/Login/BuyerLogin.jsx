@@ -7,10 +7,13 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { setProfilePath } from '../../../../reduxElements/profilePathSlice';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 
 export default function BuyerLogin() {
     const [email, setEmail] = useState('abc@gmail.com');
     const [password, setPassword] = useState('abc');
+    const [isLoading, setIsLoading] = useState(false);
     const Navigate = useNavigate();
     const dispatch = useDispatch();
     
@@ -25,7 +28,9 @@ export default function BuyerLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(email, password);
+        setIsLoading(true);
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/buyer/login`, {email, password});
+        setIsLoading(false);
         if(response.data.message === 'email does not exist'){
             toast.error('Given Email is not Registered');
         }
@@ -40,6 +45,19 @@ export default function BuyerLogin() {
             Navigate('/buyerProfile');
         }
     };
+
+    if(isLoading){
+        return(
+            <div className="loading-animation-main-container">
+                <LoadingOutlined
+                    style={{
+                        fontSize: 48,
+                    }}
+                    spin
+                />
+            </div>
+        )
+    }
 
   return (
     <div className="container-fluid main-page login-signup">

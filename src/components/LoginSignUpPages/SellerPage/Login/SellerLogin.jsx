@@ -7,10 +7,13 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { setProfilePath } from '../../../../reduxElements/profilePathSlice';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 
 export default function SellerLogin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const Navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -25,7 +28,9 @@ export default function SellerLogin() {
     const handleSubmit = async (e) => {  
         e.preventDefault();
         console.log(email, password);
+        setIsLoading(true);
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/seller/login`, {email, password});
+        setIsLoading(false);
         if(response.data.message === 'email does not exist'){
             toast.error('Given Email is not Registered');
         }
@@ -39,6 +44,19 @@ export default function SellerLogin() {
             Cookies.set('profilePath', '/sellerProfile');
             Navigate('/sellerProfile');
         }
+    }
+
+    if(isLoading){
+        return(
+            <div className="loading-animation-main-container">
+                <LoadingOutlined
+                    style={{
+                        fontSize: 48,
+                    }}
+                    spin
+                />
+            </div>
+        )
     }
 
   return (
