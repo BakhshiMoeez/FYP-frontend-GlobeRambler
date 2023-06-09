@@ -69,7 +69,7 @@ export default function CardSection({searchedTerm}) {
     
     async function fetchAllTheTours()
     {
-        const response = await axios.get('http://localhost:3500/api/tour');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tour`);
         setTours(response.data);
         setDummyTestArray(response.data);
         //console.log(Tours);

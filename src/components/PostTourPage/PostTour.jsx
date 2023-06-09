@@ -111,7 +111,7 @@ export default function PostTour() {
     console.log("My Tour info is: ",tourInfo);
 
     const response = await axios.post(
-      `http://localhost:3500/api/tour/`,
+      `${process.env.REACT_APP_API_URL}/api/tour/`,
       tourInfo
     );
     console.log(response.data);

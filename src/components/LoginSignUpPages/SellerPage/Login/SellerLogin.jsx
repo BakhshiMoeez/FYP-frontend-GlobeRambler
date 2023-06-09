@@ -25,7 +25,7 @@ export default function SellerLogin() {
     const handleSubmit = async (e) => {  
         e.preventDefault();
         console.log(email, password);
-        const response = await axios.post('http://localhost:3500/api/seller/login', {email, password});
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/seller/login`, {email, password});
         if(response.data.message === 'email does not exist'){
             toast.error('Given Email is not Registered');
         }
