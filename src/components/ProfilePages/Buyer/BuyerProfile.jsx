@@ -208,12 +208,12 @@ function UpdateBuyerProfile({ setUpdatedProfile, buyerInfo }) {
     address: buyerInfo.address,
   });
 
-  function buyerProfileUpdateFunc(){
+  async function buyerProfileUpdateFunc(){
     try{
-      const buyerProfileUpdate = axios.patch(`${process.env.REACT_APP_API_URL}/api/buyer/`, updatedBuyerProfileInfo );
+      const buyerProfileUpdate = await axios.patch(`${process.env.REACT_APP_API_URL}/api/buyer/`, updatedBuyerProfileInfo );
       console.log(buyerProfileUpdate.data);
       setUpdatedProfile(false);
-      // window.location.reload();
+      window.location.reload();
     }
     catch (err) {
       console.log(err);

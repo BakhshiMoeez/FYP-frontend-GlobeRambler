@@ -231,9 +231,9 @@ function UpdateSellerProfile({ setUpdatedProfile, sellerInfo }) {
     companyDescription: sellerInfo.companyDescription,
   });
 
-  function buyerProfileUpdateFunc(){
+  async function buyerProfileUpdateFunc(){
     try{
-      const sellerProfileUpdate = axios.patch(`${process.env.REACT_APP_API_URL}/api/seller/`, updatedSellerProfileInfo );
+      const sellerProfileUpdate = await axios.patch(`${process.env.REACT_APP_API_URL}/api/seller/`, updatedSellerProfileInfo );
       console.log(sellerProfileUpdate.data);
       setUpdatedProfile(false);
       window.location.reload();
