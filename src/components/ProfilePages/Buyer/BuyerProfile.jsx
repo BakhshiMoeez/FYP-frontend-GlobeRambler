@@ -211,7 +211,7 @@ function UpdateBuyerProfile({ setUpdatedProfile, buyerInfo }) {
   function buyerProfileUpdateFunc(){
     try{
       const buyerProfileUpdate = axios.patch(`${process.env.REACT_APP_API_URL}/api/buyer/`, updatedBuyerProfileInfo );
-      console.log(buyerProfileUpdate.data);
+      console.log('updatedBuyerProfile', buyerProfileUpdate.data);
       setUpdatedProfile(false);
       window.location.reload();
     }
