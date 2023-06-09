@@ -177,7 +177,7 @@ const TourDetail = () => {
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.bronzeCarDesc}</p>
                                         <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.bronzeAddInfo}</p>
 
-                                        <a href="/BuyerLogin"><button className="tour-continue-btn" onClick={handleCheckoutBronze} >Checkout</button></a>
+                                        <button className="tour-continue-btn" onClick={handleCheckoutBronze} >Checkout</button>
                                     </div>
                                 </div>                                
                             </div>
@@ -194,7 +194,7 @@ const TourDetail = () => {
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.silverCarDesc}</p>
                                         <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.silverAddInfo}</p>
 
-                                        <a href="/BuyerLogin"><button className="tour-continue-btn" onClick={handleCheckoutSilver} >Checkout</button></a>
+                                        <button className="tour-continue-btn" onClick={handleCheckoutSilver} >Checkout</button>
                                     </div>
                                 </div>  
                             </div>
@@ -211,7 +211,7 @@ const TourDetail = () => {
                                         <p><span><img src="/asset/tour-details/car.png" alt="" /></span> {tour.goldCarDesc}</p>
                                         <p><span><img src="/asset/tour-details/additional.png" alt="" /></span> {tour.goldAddInfo}</p>
 
-                                        <a href="/BuyerLogin"><button className="tour-continue-btn" onClick={handleCheckoutGold} >Checkout</button></a>
+                                        <button className="tour-continue-btn" onClick={handleCheckoutGold} >Checkout</button>
                                     </div>
                                 </div>  
                             </div>
