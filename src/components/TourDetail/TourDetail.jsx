@@ -156,28 +156,14 @@ const TourDetail = () => {
         <div className="tour-details-inside-container">
             <h1>Tour Details</h1>
             <div className="row">
-                <div className="col-12 col-lg-8 tour-details-images">
+                <div className="col-12 col-md-12 col-lg-8 tour-details-images">
                     <div className="carousel-slider">
                         <Carousel autoplay>
                             <img src={tour.coverImage} alt="" />
                         </Carousel>
                     </div>
-                    <div className="tour-details-info">
-
-                        <div className="tour-details-info-seller-info">
-                            <img className='tour-details-info-seller-info-img' src={tour.sellerProfilePic} alt="profile pic" />
-                            <h5><a className='tour-details-anchor-tag-profile'  style={{target: '_blank',textDecoration: "None", color:'black'}} href={`/sellerProfileDetail/${tour.email}`}>{`${firstName} ${lastName}`}</a></h5>
-                        </div>
-
-                        <h2 className="tour-details-name">{tour.title}</h2>
-                        {/* <h3 className="tour-details-category">Historic</h3> */}
-                        <p className="tour-details-description" style={{textAlign: 'justify'}}>
-                            {tour.description}
-                        </p>
-
-                    </div>
                 </div>
-                <div className="col-12 col-lg-4 tour-details-tabs">
+                <div className="col-12 col-md-12 col-lg-4 tour-details-tabs">
                     <div className="tour-details-tabs-div">
                         <ul className="nav nav-tabs" role="tablist">
                             <li className="nav-item">
@@ -244,6 +230,25 @@ const TourDetail = () => {
                                 </div>  
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col-12 col-lg-8 tour-details-images">
+                    <div className="tour-details-info">
+
+                        <div className="tour-details-info-seller-info">
+                            <img className='tour-details-info-seller-info-img' src={tour.sellerProfilePic} alt="profile pic" />
+                            <h5><a className='tour-details-anchor-tag-profile'  style={{target: '_blank',textDecoration: "None", color:'black'}} href={`/sellerProfileDetail/${tour.email}`}>{`${firstName} ${lastName}`}</a></h5>
+                        </div>
+
+                        <h2 className="tour-details-name">{tour.title}</h2>
+                        {/* <h3 className="tour-details-category">Historic</h3> */}
+                        <p className="tour-details-description" style={{textAlign: 'justify'}}>
+                            {tour.description}
+                        </p>
+
                     </div>
                 </div>
             </div>

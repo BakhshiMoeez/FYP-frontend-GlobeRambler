@@ -155,3 +155,10 @@ h6.profile-info-location {
     }
     
 }
+
+@media(max-width: 992px) {
+    .profile-info-email-phone-div {
+        display: flex;
+        max-width: 450px;
+    }
+}
