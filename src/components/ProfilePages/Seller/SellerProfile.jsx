@@ -4,10 +4,15 @@ import Cookies from 'js-cookie';
 import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import CardSection from "../../CardSection/CardSection";
+import {toast} from 'react-toastify';
 import axios from 'axios';
+import { Avatar, Card } from 'antd';
+
 import $ from 'jquery';
 
 import { useNavigate } from 'react-router-dom';
+
+const { Meta } = Card;
 
 $(document).ready(function() {
   $(".notification-drop .item").off().on('click', function() {
@@ -15,13 +20,12 @@ $(document).ready(function() {
   });
  });
 
-
 export default function SellerProfile() {
   const sellerEmail = Cookies.get('sellerEmail');
   const [updateProfile, setUpdateProfile] = useState(false);
   const Navigate = useNavigate();
   const [notifications, setNotifications] = useState([{_id : '', title: '', desc: ''}]);
-  
+  const [tours , setTours] = useState([]);
 
   const [sellerInfo, setSellerInfo] = useState({
     firstName: '',
@@ -56,13 +60,32 @@ export default function SellerProfile() {
         console.log(error); // handle the error response
       }
     };
+
+    const getToursPostedBySeller = async () => {
+      try{
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tourupdatedelete/${sellerEmail}`);
+        setTours(response.data);
+        console.log('Tours Posted: ', response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
   
     fetchData();
     getNotifcations();
+    getToursPostedBySeller();
 
   }, [sellerEmail]);
 
-
+  const deleteTour = async (tourId) => {
+    try{
+      // const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/tourupdatedelete/${tourId}`);
+      // console.log(response.data);
+      // window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   async function updateProfilePic(e)
   {
     const formData1 = new FormData();
@@ -150,14 +173,40 @@ export default function SellerProfile() {
           </div>
         </div>
 
-        {/* Card Section */}
-        {/* <CardSection /> */}
-        <div className="buyerProfile-logout-button">
-          {/* <button className='btn btn-warning' id='logout-btn-buyer' onClick={handleLogout}>Logout</button> */}
+        {/* -------------------- Tours Posted Section --------------- */}
+        <div className="card-section-main-container">
+        <div className="card-section-inside-container">
+            <div className="card-section-heading-text">
+                <p>Tours Posted By the Seller</p>
+                <div className="card-section-cards-holder">
+                    
+                    {
+                        tours.map((item) => (
+                            <Card 
+                                style={{width: 240, marginBottom: 20}}
+                                cover = {<img src={item.coverImage} alt="img"/>}
+                            >
+                                <Meta
+                                    avatar={<Avatar src={item.sellerProfilePic} />}
+                                    title={<a href={`/tourDetail/${item._id}`}  style={{ color: 'black' }} >{item.title}</a>}
+                                />
+                              <div className="inside-the-seller-card-section_card">
+                                <button className='btn btn-primary'>{<a href={`/tourDetail/${item._id}`}  style={{ color: 'white' }} >Update</a>}</button>
+                                <button className='btn btn-danger' onClick={async () => {
+                                  const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/tourupdatedelete/${item._id}`);
+                                  console.log(response.data);
+                                  window.location.reload();
+                                }}>Delete</button>
+                              </div>
+                            </Card>
+                        ))
+                    }
+                    
+                </div>
+            </div>
         </div>
-        {/* Customer Reviews Section */}
-        
-        {/* Footer Section */}
+    </div>
+
         <Footer />
 
     </div>
