@@ -1,0 +1,61 @@
+/* UserList.css */
+.user-list-container {
+    width: 200px;
+    height: 400px;
+    overflow: auto;
+    background-color: #f1592a;
+    color: white;
+    /* position: relative; Added position relative */
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .user-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-list-item {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .user-list-item-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-list-item-name {
+    font-size: 16px;
+  }
+  
+  /* Custom scrollbar */
+  .user-list-container::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .user-list-container::-webkit-scrollbar-track {
+    background: #f1592a;
+  }
+  
+  .user-list-container::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5px;
+  }
+  
+  .user-list-container::-webkit-scrollbar-thumb:hover {
+    background: #dcdcdc;
+  }
+  

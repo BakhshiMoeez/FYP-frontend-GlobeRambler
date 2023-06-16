@@ -6,6 +6,14 @@ import CardSection from '../CardSection/CardSection'
 
 export default function BuyingDashboard() {
     const [searchedTerm, setSearchedTerm] = useState('')
+
+    const users = [
+        { id: 1, name: 'John Doe', image: 'user1.jpg' },
+        { id: 2, name: 'Jane Smith', image: 'user2.jpg' },
+        { id: 3, name: 'Mike Johnson', image: 'user3.jpg' },
+        // Add more users here
+      ];
+      
   return (
     <>
 <div className="Aboutus-main-container">
@@ -27,7 +35,6 @@ export default function BuyingDashboard() {
         <CardSection searchedTerm={searchedTerm} />
         {/* Footer Section */}
         <Footer />
-
     </div>
     </>
   )
