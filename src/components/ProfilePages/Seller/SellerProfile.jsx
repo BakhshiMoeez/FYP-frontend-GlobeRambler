@@ -191,7 +191,7 @@ export default function SellerProfile() {
                                     title={<a href={`/tourDetail/${item._id}`}  style={{ color: 'black' }} >{item.title}</a>}
                                 />
                               <div className="inside-the-seller-card-section_card">
-                                <button className='btn btn-primary'>{<a href={`/tourDetail/${item._id}`}  style={{ color: 'white' }} >Update</a>}</button>
+                                <button className='btn btn-primary'>{<a href={`/tourUpdate/${item._id}`}  style={{ color: 'white' }} >Update</a>}</button>
                                 <button className='btn btn-danger' onClick={async () => {
                                   const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/tourupdatedelete/${item._id}`);
                                   console.log(response.data);

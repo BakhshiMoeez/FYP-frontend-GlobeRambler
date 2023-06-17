@@ -17,6 +17,7 @@ import SellerProfileDetail from "./components/sellerProfileDetail/sellerProfileD
 import PaymentFrom from "./components/PaymentForm/PaymentForm";
 import CheckOutSucess from "./components/CheckoutSucess/CheckoutSucess";
 import CheckOutFail from "./components/CheckoutFail/CheckoutFail";
+import TourUpdatePage from "./components/TourUpdatePage/TourUpdatePage";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/notifications/:id" element={<NotificationsDetials />} />
         <Route path="/checkout-success" element={<CheckOutSucess />} />
         <Route path="/checkout-failure" element={<CheckOutFail />} />
+        <Route path="/tourUpdate/:id" element={<TourUpdatePage />} />
         <Route
           path="/sellerProfileDetail/:email"
           element={<SellerProfileDetail />}
