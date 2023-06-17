@@ -33,6 +33,8 @@ export default function PostTour() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [basePrice, setBasePrice] = useState("");
+  const [source, setSource] = useState("");
+  const [destination, setDestination] = useState("");
 
   const [bronzePhotographyDesc, setBronzePhotographyDesc] = useState("N/A");
   const [bronzePhotographyPrice, setBronzePhotographyPrice] = useState("0");
@@ -72,6 +74,8 @@ export default function PostTour() {
   const handlePublish = async (e) => {
     e.preventDefault();
     const tourInfo = {
+      source: source,
+      destination: destination,
       title: title,
       desc: desc,
       coverImage: coverImage,
@@ -288,6 +292,32 @@ $( document ).ready(function() {
                 placeholder="Enter the Base Price of the Tour"
                 style={{ padding: "1rem" }}
                 onChange={(e) => setBasePrice(e.target.value)}
+              ></Input>
+              <b>
+                {" "}
+                <Form.Item
+                  label="Starting Location"
+                  name="startLocation"
+                  style={{ margin: "0" }}
+                ></Form.Item>
+              </b>
+              <Input
+                placeholder="Enter the Starting location of the Tour"
+                style={{ padding: "1rem" }}
+                onChange={(e) => setSource(e.target.value)}
+              ></Input>
+              <b>
+                {" "}
+                <Form.Item
+                  label="Destination Location"
+                  name="destinationLocation"
+                  style={{ margin: "0" }}
+                ></Form.Item>
+              </b>
+              <Input
+                placeholder="Enter the Destination location of the Tour"
+                style={{ padding: "1rem" }}
+                onChange={(e) => setDestination(e.target.value)}
               ></Input>
 
               <div className="post-tour-cover-photo">
