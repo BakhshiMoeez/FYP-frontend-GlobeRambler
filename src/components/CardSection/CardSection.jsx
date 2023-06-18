@@ -156,7 +156,7 @@ export default function CardSection({searchedTerm}) {
         
         {
             isOpen && (
-                <form className='aboutus-search-form'>
+                <form className='aboutus-search-form filters-search'>
                     <input className='aboutus-form-input' onChange={(e) => {setStart(e.target.value)}} type="text" placeholder='Start City'/>
                     <input className='aboutus-form-input' onChange={(e) => {setDestination(e.target.value)}} type="text" placeholder='Destination City'/>
                     <input className='aboutus-form-input' onChange={(e) => {setSearchPrice(e.target.value)}} type="text" placeholder='Price'/>

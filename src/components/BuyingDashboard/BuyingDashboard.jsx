@@ -16,7 +16,7 @@ export default function BuyingDashboard() {
       
   return (
     <>
-<div className="Aboutus-main-container">
+<div className="Aboutus-main-container tour-buy">
         {/*banner image*/}
         <img className="Aboutus-banner-image" src="/asset/img/Banner.png" alt="banner" />
         {/*container to manage the width like container in bootstrap*/}

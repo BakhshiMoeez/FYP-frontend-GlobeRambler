@@ -1,0 +1,30 @@
+.Aboutus-main-container.tour-buy .aboutus-banner-search {
+    margin-top: -230px;
+}
+
+.Aboutus-main-container.tour-buy .aboutus-inside-container-flex {
+    height: 250px;
+}
+
+.Aboutus-main-container.tour-buy form.aboutus-search-form {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 0 10px;
+}
+
+.Aboutus-main-container.tour-buy .card-section-heading-text {
+    padding-top: 100px;
+}
+
+@media(max-width: 576px) {
+    .Aboutus-main-container.tour-buy form.aboutus-search-form.filters-search {
+        flex-wrap: wrap;
+    }
+
+    .Aboutus-main-container.tour-buy form.aboutus-search-form.filters-search input.aboutus-form-input {
+        max-width: 150px;
+    } 
+}

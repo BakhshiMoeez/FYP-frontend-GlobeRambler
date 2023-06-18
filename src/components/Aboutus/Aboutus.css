@@ -33,7 +33,6 @@
     justify-content: space-between;
     align-items: center;
     height: 300px;
-
 }
 
 .aboutus-banner-text{
@@ -41,7 +40,7 @@
     font-size: 1.7rem;
     font-weight: bold;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 0;
 }
 
 .aboutus-banner-text-lower
@@ -56,7 +55,8 @@
     outline: none;
     border: none;
     padding: 12px 15px;
-    width: 400px;
+    max-width: 400px;
+    width: 90%;
 }
 
 .aboutus-search-button
