@@ -109,9 +109,9 @@ export default function CardSection({searchedTerm}) {
       ];
     
     function searchFunctionality(e){ 
-        console.log(dummyTestArray);
+        // console.log(dummyTestArray);
         e.preventDefault();
-        console.log(searchTerm);
+        // console.log(searchTerm);
         const filteredTours = dummyTestArray.filter((tour) => {
             return tour.title.toLowerCase().includes(searchTerm.toLowerCase());
         });
@@ -119,13 +119,52 @@ export default function CardSection({searchedTerm}) {
     }
 
 
+    const [isOpen, setIsOpen] = useState(false);
+    const [start, setStart] = useState('');
+    const [destination, setDestination] = useState('');
+    const [searchPrice, setSearchPrice] = useState(0);
+
+    const toggleForm = (e) => {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+    };
+
+    const handleFilter = (e) => 
+    {
+        e.preventDefault();
+
+        const filteredTours = dummyTestArray.filter((tour) => {
+          // Check if the start, destination, and price conditions are met
+          const isStartMatch = tour.source.toLowerCase() === start.toLowerCase();
+          const isDestinationMatch = tour.destination.toLowerCase() === destination.toLowerCase();
+          const isPriceMatch = parseFloat(tour.basePrice) <= parseFloat(searchPrice);
+    
+          return isStartMatch && isDestinationMatch && isPriceMatch;
+        });
+
+        setTours(filteredTours);
+    }
+
   return (
     <>
     <div className="aboutus-banner-search">
         <form className='aboutus-search-form'>
             <input className='aboutus-form-input' onChange={(e) => {setSearchTerm(e.target.value)}} type="text" placeholder='Destination, City'/>
             <button className='aboutus-search-button' onClick={searchFunctionality}>Search</button>
+            <button className='aboutus-search-button' onClick={toggleForm}>Advance</button>
         </form>
+        
+        {
+            isOpen && (
+                <form className='aboutus-search-form'>
+                    <input className='aboutus-form-input' onChange={(e) => {setStart(e.target.value)}} type="text" placeholder='Start City'/>
+                    <input className='aboutus-form-input' onChange={(e) => {setDestination(e.target.value)}} type="text" placeholder='Destination City'/>
+                    <input className='aboutus-form-input' onChange={(e) => {setSearchPrice(e.target.value)}} type="text" placeholder='Price'/>
+                    <button className='aboutus-search-button' onClick={handleFilter}>Filter</button>
+                </form>
+            )
+        }
+
     </div>
     <div className="card-section-main-container">
         {/* <div className="tours-show-rated-sellers-div">
