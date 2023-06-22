@@ -209,6 +209,11 @@
     margin-top: 10px;
 }
 
+.profile-info .aboutus-inside-container {
+    width: 95%;
+    max-width: 1200px;
+}
+
 /* ================================================ */
 
 @media (max-width: 992px) {
