@@ -123,17 +123,12 @@
     justify-content: space-between;
   }
 
-  @media(max-width: 992px) {
-    .profile-info-email-phone-div {
-        display: flex;
-        max-width: 450px;
-    }
-
+  @media (max-width: 1100px) {
     .profile-info-wrapper ul.notification-drop {
-        position: absolute;
-        right: 0;
-        top: 460px;
-        left: 250px;
+      position: absolute;
+      right: 0;
+      top: 460px;
+      left: 250px;
     }
 
     .notification-drop .btn__badge {
@@ -145,6 +140,13 @@
         left: 0;
         top: 20px;
         max-width: 250px;
+    }
+  }
+
+  @media(max-width: 992px) {
+    .profile-info-email-phone-div {
+        display: flex;
+        max-width: 450px;
     }
 }
 
