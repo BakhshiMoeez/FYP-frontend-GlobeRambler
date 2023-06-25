@@ -30,12 +30,21 @@ export default function SellerLogin() {
         console.log(email, password);
         setIsLoading(true);
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/seller/login`, {email, password});
+        const status = await axios.get(`${process.env.REACT_APP_API_URL}/api/sellerStatus/${email}`);
         setIsLoading(false);
         if(response.data.message === 'email does not exist'){
             toast.error('Given Email is not Registered');
         }
         else if(response.data.message === 'invalid password'){
             toast.error('Invalid Password');
+        }
+        else if(status.data.status === "pending")
+        {
+            toast.warning("Given Seller ID is under Inscpection");
+        }
+        else if(status.data.status === "rejected")
+        {
+            toast.warning("Given Seller ID is Rejected");
         }
         else{
             toast.success('Login Successful');
