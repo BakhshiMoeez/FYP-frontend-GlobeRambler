@@ -16,12 +16,27 @@ const AdminPanel = () => {
         amount: '',
         tourName: ''
     }]);
+    const [sellerStatusArray, setSellerStatusArray] = useState([{
+        status: '',
+        email: '',
+        password: '',
+        fullName: '',
+        profilePic: '',
+        phone: '',
+        address: '',
+        creditCard: '',
+        companyName: '',
+        companyLocation: '',
+        companyDescription: '',
+    }])
 
     const [credentials, setCredentials] = useState({
         noOfBuyers: '0',
         noOfSellers: '0',
         noOfPayments: '0',
     });
+
+    const [currentStatus, setCurrentStatus] = useState('');
 
     const navigate = useNavigate();
 
@@ -35,8 +50,18 @@ const AdminPanel = () => {
 
         getPaymentRecords();
         getAdminTabsInfo();
+        getSellerStatus();
     }, []);
     
+    const getSellerStatus = async () => {
+        try{
+            const sellerStatus = await axios.get(`${process.env.REACT_APP_API_URL}/api/sellerStatus`);
+            setSellerStatusArray(sellerStatus.data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     const getPaymentRecords = async () => {
         try{
             const paymentRecords = await axios.get(`${process.env.REACT_APP_API_URL}/api/paymentForm`);
@@ -153,6 +178,80 @@ const AdminPanel = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="card shadow border-0 mb-7">
+                    <div className="card-header">
+                        <h5 className="mb-0">Seller Approval Requests</h5>
+                    </div>
+                    <div className="table-responsive">
+                        <table className="table table-hover table-nowrap">
+                            <thead className="thead-light">
+                                <tr>
+                                    <th scope="col">Seller Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Company Name</th>
+                                    <th scope="col">Company Location</th>
+                                    <th scope="col">Approve Button</th>
+                                    <th scope="col">Reject Button</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {sellerStatusArray.map((sellerStatus, index) => (
+                                <tr key={index}>
+                                    <td>
+                                    <img
+                                        alt="..."
+                                        src={sellerStatus.profilePic}
+                                        className="avatar avatar-sm rounded-circle me-2"
+                                    />
+                                    <a className="text-heading font-semibold" href="#">
+                                        {sellerStatus.fullName}
+                                    </a>
+                                    </td>
+                                    <td>
+                                    <a className="text-heading font-semibold" href="#">
+                                        {sellerStatus.email}
+                                    </a>
+                                    </td>
+                                    <td>
+            
+                                    <a className="text-heading font-semibold" href="#">
+                                        {sellerStatus.companyName}
+                                    </a>
+                                    </td>
+                                    <td>
+                                    <a className="text-heading font-semibold" href="#">
+                                        {sellerStatus.companyLocation}
+                                    </a>
+                                    </td>
+
+                                    <td><button className='btn btn-primary' onClick={async (e) => {
+                                        e.preventDefault();
+                                        try{
+                                            setCurrentStatus("approved");
+                                            const updatedStatus = await axios.post(`${process.env.REACT_APP_API_URL}/api/sellerStatus/${sellerStatus.email}`, { status: "approved"});
+                                            console.log(updatedStatus);
+                                        } catch (err){
+                                            console.log(err);
+                                        }
+                                    }}>Approve</button></td>
+
+                                    <td><button className='btn btn-danger' onClick={async (e) => {
+                                        e.preventDefault();
+                                        try{
+                                            setCurrentStatus("approved");
+                                            const updatedStatus = await axios.post(`${process.env.REACT_APP_API_URL}/api/sellerStatus/${sellerStatus.email}`, { status: "rejected"});
+                                            console.log(updatedStatus);
+                                        } catch (err){
+                                            console.log(err);
+                                        }
+                                    }}>Reject</button></td>
+                                </tr>
+                                ))}
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div className="card shadow border-0 mb-7">

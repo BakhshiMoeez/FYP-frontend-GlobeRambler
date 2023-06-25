@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { setProfilePath } from '../../../../reduxElements/profilePathSlice';
 import { LoadingOutlined } from '@ant-design/icons';
+import { Button, Modal } from 'antd';
 import { Spin } from 'antd';
 
 export default function SellerLogin() {
@@ -16,6 +17,17 @@ export default function SellerLogin() {
     const [isLoading, setIsLoading] = useState(false);
     const Navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
 
     function sellerEmailHandler(e) {
         setEmail(e.target.value);
@@ -44,7 +56,8 @@ export default function SellerLogin() {
         }
         else if(status.data.status === "rejected")
         {
-            toast.warning("Given Seller ID is Rejected");
+            toast.warning("Given Seller ID is Rejected You wont be able to continue with us");
+            showModal();
         }
         else{
             toast.success('Login Successful');
@@ -70,6 +83,9 @@ export default function SellerLogin() {
 
   return (
     <div className="container-fluid main-page login-signup">
+        <Modal title="Registration Rejected" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <p>We have throughly inspected your Profile according to the data you Provided, We are sorry to tell you that your application has been rejected you cannot continue as a Seller on our Website.</p>
+        </Modal>
         <div className="row main-page seller">
             <div className="col-12 col-lg-6">
                 {/* <ul className='main-page-ul'>
