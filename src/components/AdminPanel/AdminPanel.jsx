@@ -43,14 +43,16 @@ const AdminPanel = () => {
 
     useEffect(() => {
         const isAdminLogin = Cookies.get('adminLogin');
-        if(isAdminLogin === 'false')
-        {
-            navigate('/adminLogin');
-        }
+        
+        // if(isAdminLogin === 'false')
+        // {
+        //     navigate('/adminLogin');
+        // }
 
         getPaymentRecords();
         getAdminTabsInfo();
         getSellerStatus();
+        
     }, []);
     
     const getSellerStatus = async () => {
@@ -232,6 +234,7 @@ const AdminPanel = () => {
                                             setCurrentStatus("approved");
                                             const updatedStatus = await axios.post(`${process.env.REACT_APP_API_URL}/api/sellerStatus/${sellerStatus.email}`, { status: "approved"});
                                             console.log(updatedStatus);
+                                            window.location.reload();
                                         } catch (err){
                                             console.log(err);
                                         }
@@ -243,6 +246,7 @@ const AdminPanel = () => {
                                             setCurrentStatus("approved");
                                             const updatedStatus = await axios.post(`${process.env.REACT_APP_API_URL}/api/sellerStatus/${sellerStatus.email}`, { status: "rejected"});
                                             console.log(updatedStatus);
+                                            window.location.reload();
                                         } catch (err){
                                             console.log(err);
                                         }
